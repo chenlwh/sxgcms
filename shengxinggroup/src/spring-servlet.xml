@@ -13,14 +13,14 @@
 	<!-- 引入属性文件 -->
 	<context:property-placeholder location="classpath:config.properties" />
 	<!-- 自动扫描dao和service包(自动注入) -->
-	<context:component-scan base-package="com.sxg.cms.controller" />
+	<context:component-scan base-package="com.sxg.cms.controller,com.sxg.cms.service,com.sxg.cms.dao" />
 	<mvc:annotation-driven />
 
 	<mvc:default-servlet-handler />
 	
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-         <property name="prefix" value="/WEB-INF/"></property>
+         <property name="prefix" value="/admin/"></property>
          <property name="suffix" value=".html"></property>
     </bean>
 

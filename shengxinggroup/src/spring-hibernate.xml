@@ -71,7 +71,7 @@
 		<!-- 自动扫描注解方式配置的hibernate类文件 -->
 		<property name="packagesToScan">
 			<list>
-				<value>com.ygsoft.djcs.entity</value>
+				<value>com.sxg.cms.entity</value>
 			</list>
 		</property>
 
@@ -119,7 +119,7 @@
 		</tx:attributes>
 	</tx:advice>
 	<aop:config>
-		<aop:pointcut id="transactionPointcut" expression="execution(* com.ygsoft.djcs.service..*Impl.*(..))" />
+		<aop:pointcut id="transactionPointcut" expression="execution(* com.sxg.cms.service..*Impl.*(..))" />
 		<aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice" />
 	</aop:config>
 
