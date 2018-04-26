@@ -16,7 +16,15 @@
 		<servlet-name>spring</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
+		
+	<filter>
+		<filter-name>loginFilter</filter-name>
+		<filter-class>com.sxg.cms.filter.LoginAccessFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>loginFilter</filter-name>
+		<url-pattern>/admin/*</url-pattern>
+	</filter-mapping>
 
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
