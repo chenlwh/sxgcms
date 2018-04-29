@@ -1,7 +1,7 @@
 package com.sxg.cms.controller;
 
 import java.util.HashMap;
-
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +32,6 @@ public class UserController {
 	private UserService userService;
 
 	@RequestMapping(value = "/login")
-
 	public String login(HttpServletRequest request, @RequestParam("username") String username,
 			@RequestParam("password") String password) {
 		Map<String, Object> result = new HashMap<String, Object>();
@@ -52,7 +51,60 @@ public class UserController {
 			result.put("suc", "no");
 			result.put("msg", "error");
 		}
-		return "";
+		return "login";
+
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/list")
+	public Map<String,Object> list() {
+		Map<String, Object> result = new HashMap<String, Object>();
+		try {
+			List <User> list = userService.list();
+			result.put("suc", "yes");
+			result.put("data", list);
+
+		} catch (Exception e) {
+			result.put("suc", "no");
+			result.put("msg", "error");
+		}
+		return result;
+
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/save")
+	public Map<String,Object> save(@RequestParam(value="id",required=false) String id,@RequestParam("username") String username,
+			@RequestParam("password") String password,
+			@RequestParam("accessid") String accessid) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		try {
+			userService.save(id,username, password,accessid);
+			result.put("suc", "yes");
+			result.put("msg", "success");
+
+		} catch (Exception e) {
+			result.put("suc", "no");
+			result.put("msg", "error");
+		}
+		return result;
+
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/delete")
+	public Map<String,Object> delete(@RequestParam("id") String id) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		try {
+			userService.delete(id);
+			result.put("suc", "yes");
+			result.put("msg", "success");
+
+		} catch (Exception e) {
+			result.put("suc", "no");
+			result.put("msg", "error");
+		}
+		return result;
 
 	}
 

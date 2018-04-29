@@ -36,6 +36,8 @@ public class User implements Serializable {
 	private Date createdTime;
 	
 	private String showname;
+	
+	private String accessid;
 
 	public String getId() {
 		return id;
@@ -83,6 +85,14 @@ public class User implements Serializable {
 
 	public void setShowname(String showname) {
 		this.showname = showname;
+	}
+
+	public String getAccessid() {
+		return accessid;
+	}
+
+	public void setAccessid(String accessid) {
+		this.accessid = accessid;
 	}
 	
 	

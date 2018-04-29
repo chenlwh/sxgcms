@@ -31,4 +31,25 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 		return null;
 	}
 
+	@Override
+	public void save(User user) {
+		super.getHibernateTemplate().saveOrUpdate(user);
+		
+	}
+
+	@Override
+	public List<User> list() {
+		String hql = "from User";
+		List<User> list = (List<User>) super.getHibernateTemplate().find(hql);
+		return list;
+	}
+
+	@Override
+	public void delete(String id) {
+		User user = new User();
+		user.setId(id);
+		super.getHibernateTemplate().delete(user);
+		
+	}
+
 }
