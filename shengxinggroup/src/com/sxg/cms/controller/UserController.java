@@ -1,10 +1,13 @@
 package com.sxg.cms.controller;
 
+import java.io.File;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +15,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.sxg.cms.entity.User;
 
@@ -127,5 +131,25 @@ public class UserController {
 		return result;
 
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/upload", method = { RequestMethod.POST })
+	public Map<String, Object> upload(HttpServletRequest request,HttpServletResponse response, @RequestParam("vedioFile") MultipartFile vedioFile) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		try {	     
+//			StSring path = request.getServletContext().getContextPath();
+			String path = request.getSession().getServletContext().getRealPath("/");
+			File vedioPath = new File(path+"vedio.mp4");
+			vedioFile.transferTo(vedioPath);
 
+			result.put("suc", "yes");
+			result.put("msg", "导入成功");
+
+		} catch (Exception e) {
+			result.put("suc", "no");
+			result.put("msg", e.getMessage());
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

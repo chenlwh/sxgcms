@@ -14,7 +14,9 @@ $().ready(function(){
 		$("#video-section").attr("style", "");
 		$("#video-section")
 				.append(
-						"<div class='video-container' class='hidden-xs hidden-mxs'><video id='video' src='http://www.hnagroup.com/media/10957/中文.mp4' width='100%' height='auto'  loop='loop' poster='http://www.hnagroup.com/media/10956/background.jpg'>您的浏览器不支持播放视频</video></div>");
+						"<div class='video-container' class='hidden-xs hidden-mxs'>" +
+						"<video id='video' src='http://www.hnagroup.com/media/10957/中文.mp4' width='100%' height='auto'  " +
+						"loop='loop' poster='http://www.hnagroup.com/media/10956/background.jpg'>您的浏览器不支持播放视频</video></div>");
 		document.getElementById('video').play();
 	} else {
 		$("#video-section")
