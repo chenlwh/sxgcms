@@ -107,36 +107,25 @@ public class UserController {
 		return result;
 
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/password")
+	public Map<String,Object> password(HttpServletRequest request,@RequestParam("password") String password) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		try {
+			HttpSession session = request.getSession();
+			User user = (User) session.getAttribute("user");
+			user.setPassword(password);
+			userService.save(user);
+			result.put("suc", "yes");
+			result.put("msg", "success");
 
-	// @ResponseBody
+		} catch (Exception e) {
+			result.put("suc", "no");
+			result.put("msg", "error");
+		}
+		return result;
 
-	// @RequestMapping(value="/login")
-
-	// public Map<String,Object> login(@RequestParam("username")String username,
-	// @RequestParam("password") String password) {
-
-	// Map<String,Object> result = new HashMap<String,Object>();
-
-	// try {
-
-	// User user = userService.login(username, password);
-
-	// result.put("suc", "yes");
-
-	// result.put("data", user);
-
-	// }catch(Exception e) {
-
-	// result.put("suc", "no");
-
-	// result.put("msg", "error");
-
-	// }
-
-	// return result;
-
-	//
-
-	// }
+	}
 
 }

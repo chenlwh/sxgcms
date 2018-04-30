@@ -26,8 +26,6 @@
 	</style>
 
 	<script type="text/javascript">
-		var url;
-
 		function editUser(){
 			var row = $('#dg').datagrid('getSelected');
 			if (row){
@@ -66,7 +64,7 @@
 </head>
 <body>
 	<div class="page-header">
-		<h1>管理员账号 <small>添加</small></h1>
+		<h1>用户管理 <small>权限</small></h1>
 	</div>	
 	
 	<div id="toolbar">
@@ -75,7 +73,7 @@
 		<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="removeUser()">删除</a>
 	</div>
 	<table id="dg"></table>
-	<div id="dlg" class="easyui-dialog" style="width:400px;height:280px;padding:10px 20px"
+	<div id="dlg" class="easyui-dialog" style="display:none;width:400px;height:280px;padding:10px 20px"
 			closed="true" buttons="#dlg-buttons">
 		<div class="ftitle">用户信息</div>
 		<form id="fm" method="post" novalidate>
@@ -99,11 +97,12 @@
 					valueField:'id',
 					textField:'text',
 					multiple:true,
-					panelHeight:'auto'">
+					panelHeight:'auto',
+					editable:false">
 			</div>
 		</form>
 	</div>
-	<div id="dlg-buttons">
+	<div id="dlg-buttons" style="display:none;">
 		<a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveUser()">保存</a>
 		<a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">取消</a>
 	</div>

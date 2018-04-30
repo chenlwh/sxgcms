@@ -10,7 +10,7 @@
 <link href="../easyui/themes/bootstrap/easyui.css" rel="stylesheet">
 <link href="../easyui/themes/icon.css" rel="stylesheet">
 
-<script src="../jquery/jquery.min.js"></script>
+<script src="../jquery/jquery-1.11.3.min.js"></script>
 <script src="../easyui/jquery.easyui.min.js"></script>
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 <script src="../js/holder.js"></script>
@@ -64,12 +64,18 @@
 				<div class="sidebar hidden-print">
 					<div id="navigation">
 						<ul id="admin_menu" class="nav sidenav">
-							<li><a id="user_admin" action="no">管理员管理</a>
+							<li><a id="user_admin" action="no">系统维护</a>
 								<ul class="nav">
-									<li><a id="user" href="#">添加管理员</a></li>
-									<li><a id="hot_player_setting" href="#">推荐</a></li>
-									
-								</ul></li>							
+									<li><a id="module" href="#">模块管理</a></li>
+									<li><a id="user" href="#">用户管理</a></li>
+									<li><a id="password" href="#">密码修改</a></li>
+								</ul>
+							</li>	
+							<li><a id="news_admin" action="no">信息发布</a>
+								<ul class="nav">
+									<li><a id="news" href="#">数据录入</a></li>
+								</ul>
+							</li>							
 
 
 						</ul>
