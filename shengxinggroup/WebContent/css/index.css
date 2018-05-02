@@ -1471,7 +1471,7 @@ left: 40.27%;
 @media (min-width: 992px) {
   .map-container .button-list {
     position: absolute;
-    right: 7%;
+    right: 80%;
     bottom: auto;
     top: 50%;
     margin-top: -90px;

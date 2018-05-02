@@ -4,7 +4,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=9">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<meta name="keywords" content="圣行集团,圣行官网,hna">
+	<meta name="keywords" content="海航集团,海航,海航官网,hna">
 	<title>	    
         
 	</title>
@@ -52,7 +52,15 @@
 	<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
 	<script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
-	<script src="js/hm.js"></script>
+	<script src="js/hm.js"></script><script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "https://hm.baidu.com/hm.js?eff416bbabaf12873c1773c00dea81c1";
+		var s = document.getElementsByTagName("script")[0]; 
+		s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
 </head>
 <body style="">
 
@@ -90,31 +98,6 @@
 
 <!--新闻列表 S-->
 <div class="third-blcok">
-						<div class="button-list clearfix">
-                                <div class="arrow-button hidden-md hidden-lg left-button">⟨</div>
-                                <div class="button-column normal">
-                                    <div class="button-1 active">
-                                        <span>航空</span>
-                                    </div>
-                                    <div class="button-2 active">
-                                        <span>旅游</span>
-                                    </div>
-                                    <div class="button-3 active">
-                                        <span>金融</span>
-                                    </div>
-                                    <div class="button-4 active">
-                                        <span>物流</span>
-                                    </div>
-                                    <div class="button-5 active">
-                                        <span>地产</span>
-                                    </div>
-                                    <div class="button-6 active">
-                                        <span>IT</span>
-                                    </div>
-                                </div>
-                                <div class="arrow-button hidden-md hidden-lg right-button">⟩</div>
-                            </div>
-
     <div class="news-filter-div" style="position: relative; top: 0px;">
         <div class="news-filter container">
             <a class="filter-item filter-item-active" onclick="changeType(this)" data-id="1">图文报道</a>
@@ -126,6 +109,181 @@
             <a class="filter-item mR0" onclick="changeType(this)" data-id="4">搜索</a>
             <div class="clearFilter hidden-mxs hidden-xs hidden-sm" onclick="clearFilter()" style="display:none;">清除全部筛选</div>
         </div>
+    </div>
+
+
+    <div class="search-filter container clearfix" style="display: none;">
+        <div class="search-date from">
+            <p class="p-date">从</p>
+            <div class="date-year clearfix">
+                <img src="images/left-arr.png" class="floatL left-arr" onclick="yearPre(this)">
+                <span class="span-year"><span class="year-num" id="YearStart">2018</span>年</span>
+                <img src="images/right-arr-disable.png" class="floatR right-arr-disable">
+                <img src="images/right-arr.png" class="floatR right-arr" style="display: none;" onclick="yearNext(this)">
+            </div>
+            <div class="date-month clearfix from-date">
+                <div class="month-item" data-id="1">
+                    1月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+                <div class="month-item" data-id="2">
+                    2月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+                <div class="month-item" data-id="3">
+                    3月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+                <div class="month-item" data-id="4">
+                    4月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+                <div class="month-item month-item-disable" data-id="5">
+                    5月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+                <div class="month-item month-item-disable" data-id="6">
+                    6月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+                <div class="month-item month-item-disable" data-id="7">
+                    7月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+                <div class="month-item month-item-disable" data-id="8">
+                    8月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+                <div class="month-item month-item-disable" data-id="9">
+                    9月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+                <div class="month-item month-item-disable" data-id="10">
+                    10月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+                <div class="month-item month-item-disable" data-id="11">
+                    11月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+                <div class="month-item month-item-disable" data-id="12">
+                    12月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-date to">
+            <p class="p-date">到</p>
+            <div class="date-year clearfix">
+                <img src="images/left-arr.png" class="floatL left-arr" onclick="yearPre(this)">
+                <span class="span-year"><span class="year-num" id="YearEnd">2018</span>年</span>
+                <img src="images/right-arr-disable.png" class="floatR right-arr-disable">
+                <img src="images/right-arr.png" class="floatR right-arr" style="display: none;" onclick="yearNext(this)">
+            </div>
+            <div class="date-month clearfix end-date">
+                <div class="month-item" data-id="1">
+                    1月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+                <div class="month-item" data-id="2">
+                    2月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+                <div class="month-item" data-id="3">
+                    3月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+                <div class="month-item" data-id="4">
+                    4月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+                <div class="month-item month-item-disable" data-id="5">
+                    5月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+                <div class="month-item month-item-disable" data-id="6">
+                    6月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+                <div class="month-item month-item-disable" data-id="7">
+                    7月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+                <div class="month-item month-item-disable" data-id="8">
+                    8月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+                <div class="month-item month-item-disable" data-id="9">
+                    9月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+                <div class="month-item month-item-disable" data-id="10">
+                    10月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+                <div class="month-item month-item-disable" data-id="11">
+                    11月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+                <div class="month-item month-item-disable" data-id="12">
+                    12月
+                    <div class="active-bg" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-text">
+            <div class="text-content">
+                <!--关键字搜索-->
+                <p class="p-input-title hidden-sm hidden-md hidden-lg">搜索：</p>
+                <div class="input-text">
+                    <input type="text" class="input-search" placeholder="搜索关键字">
+                    <img src="images/ListSearch.png" class="icon-search" onclick="Search(true, this);">
+                </div>
+                <!--移动端日历搜索-->
+                <div class="mobile-date-div clearfix hidden-md hidden-lg">
+                    <p class="p-input-title">日期筛选：</p>
+                    <div class="mobile-date-div1">
+                        <input id="mobilefromdate" class="mobile-date mbsc-comp" readonly="">
+                    </div>
+                    <span class="span-line">—</span>
+                    <div class="mobile-date-div1">
+                        <input id="mobiletodate" class="mobile-date mbsc-comp" readonly="">
+                    </div>
+                </div>
+                <!--类型搜索-->
+                <div class="search-type">
+                    <p class="p-input-title hidden-sm hidden-md hidden-lg">类型：</p>
+                    <span class="span-title hidden-mxs hidden-xs">类型：</span>
+                    <span class="type-item" data-id="1">
+                        图文报道
+                        <img src="images/jiahao.png" class="jiahao">
+                        <img src="images/duihao.png" class="duihao">
+                    </span>
+                    <span class="type-item" data-id="2">
+                        视频报道
+                        <img src="images/jiahao.png" class="jiahao">
+                        <img src="images/duihao.png" class="duihao">
+                    </span>
+                    <span class="type-item mR0" data-id="3">
+                        重要公告
+                        <img src="images/jiahao.png" class="jiahao">
+                        <img src="images/duihao.png" class="duihao">
+                    </span>
+                </div>
+                <!--移动端按钮-->
+                <div class="mobile-search-btn clearfix hidden-md hidden-lg">
+                    <div class="reset-btn" onclick="clearFilter()">重置</div>
+                    <div class="submit-btn" onclick="Search(true,this);">提 交</div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" id="TimeStart">
+        <input type="hidden" id="TimeEnd">
+        <input type="hidden" id="PageKind1">
+        <input type="hidden" id="PageKind2">
+        <input type="hidden" id="PageKind3">
     </div>
 
     <div class="container">
