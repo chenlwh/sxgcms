@@ -12,7 +12,8 @@ $("#admin_menu a").click(function() {
 	$(this).parent().addClass("active");
 	$(this).parent().parent().parent().addClass("active");
 	if(action!="no"){
-		$("#contentDiv").load("../admin/"+id+".html");
+//		$("#contentDiv").load("../admin/"+id+".html");
+		$("#contentFrame").attr("src","../admin/"+id+".html");  
 	}
 	
 });
