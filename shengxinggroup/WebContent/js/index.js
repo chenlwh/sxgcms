@@ -19,6 +19,61 @@ window.onload=function(){
 	setInterval(function (){ pull();},500);
 	$(".scroll").css("margin-bottom",$(".advertisement").height());
 	var num={"red":13,"orange":6,"yellow":8,"green":2,"grey":5,"blue":1};
+	
+	$.post("news/list",{accessid:"page3"},function(res){
+	    var dataList = res.data;
+	    var page3html = "";
+	    var length = dataList.length;
+	    if(length>5){
+	    	length = 5;
+	    }
+	    for(var i=0;i<length;i++){
+	    	var data = dataList[i];
+	    	page3html += "<div class='production-model"+ (i+1)+" model'>";
+	    	page3html += "<img src='"+data.picPath+"' class='img-responsive'>";
+	    	page3html += "<div class='model-opacity'>";
+	    	page3html += "<div class='opacity-text'>";
+	    	page3html += "<h4 class='p'>"+data.title+"</h4>";
+	    	page3html += "</div><img src='images/p_"+ (i+1)+".png'></div><div class='model-text top-model'>";
+	    	page3html += "<h3 class='min-h3'>"+data.title+"</h3>";
+	    	page3html += "<p>"+data.content.substring(0,45)+"</p>";
+	    	page3html += "<a href='#'>查看更多 &gt;</a><img src='images/p_"+ (i+1)+"_red.png'></div></div>";
+	    }
+	    page3html +="<script>$('.production-container .model').click(function(e){" +
+	    		"var show=$('.show'),bottom_model=$('.bottom-model');show.css('display','none');show.css('height','0');" +
+	    		"show.css('width','0');bottom_model.css('top','100%');bottom_model.css('left','100%');show.removeClass('show');" +
+	    		"if($(this).find('.model-text').hasClass('top-model')){" +
+	    		"$(this).find('.model-text').stop().show().animate({'width':'200%','height':'200%'},400);" +
+	    		"$(this).find('.model-text-mobile').stop().show().animate({'width':'300%','height':'300%'},400);" +
+	    		"$(this).find('.model-text').addClass('show');" +
+	    		"$(this).find('.model-text-mobile').addClass('show');" +
+	    		"}else if($(this).find('.model-text').hasClass('bottom-model')){" +
+	    		"$(this).find('.model-text').stop().show().animate({'width':'200%','height':'200%','top':'-100%','left':'-100%'},400);" +
+	    		"$(this).find('.model-text-mobile').stop().show().animate({'width':'300%','height':'300%'},400);" +
+	    		"$(this).find('.model-text').addClass('show');" +
+	    		"$(this).find('.model-text-mobile').addClass('show');}e.stopPropagation();});</script>";
+	    $("#page3content").html(page3html);
+	    
+	});
+	
+	$.post("news/list",{accessid:"page4"},function(res){
+	    var dataList = res.data;
+	    var page4html = "";
+	    var length = dataList.length;
+	    if(length>10){
+	    	length = 10;
+	    }
+	    for(var i=0;i<length;i++){
+	    	var data = dataList[i];
+	    	page4html += "<a href='"+data.id+"' class='news' style='display:block;background-image:url("+data.picPath+")' target='_blank'>";
+	    	page4html += "<div class='news-opacity'><div class='opacity-txt'><div class='line'></div>";
+	    	page4html += "<p>"+data.title+"</p></div></div></a>";
+	    }
+
+	    $("#page4news").html(page4html);
+	    
+	});	
+	
 	$(".map-container .button-list .button-column div").click(function () {
 	    
 		if($(this).hasClass("active")){

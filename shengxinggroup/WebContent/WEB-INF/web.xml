@@ -16,6 +16,15 @@
 		<servlet-name>spring</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>com.sxg.cms.filter.CharacterEncodingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 		
 	<filter>
 		<filter-name>loginFilter</filter-name>
