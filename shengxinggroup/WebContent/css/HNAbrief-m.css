@@ -1,0 +1,342 @@
+/*海航简介模块*/
+.bg-img-mobile{
+    width:100%;
+}
+.word-title-mobile{
+    color: #9d8455;
+    padding: 0.4rem 0 0.2rem 0;
+    font-size: 0.2rem;
+    text-align: center;
+}
+.word-download-mobile{
+    padding:0 0 0.2rem;
+    text-align: right;
+    display: block;
+    font-size: 0.14rem;
+    cursor: pointer;
+    color: rgba(0,0,0,.54);
+}
+.word-download-mobile img{
+    width:0.16rem;
+    vertical-align: middle;
+}
+.show-icon-mobile{
+    position: absolute;
+    left: 50%;
+    z-index: 9;
+    margin-left: -0.2rem;
+    top: 102%;
+    width: 0.4rem;
+    height: 0.4rem;
+    background: url("/images/introduce/add.png") no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    -webkit-border-radius: 0.45rem;
+    -moz-border-radius: 0.45rem;
+    border-radius: 0.45rem;
+    -webkit-transition: transform 1s;
+    -moz-transition: transform 1s;
+    transition: transform 1s;
+}
+.second-block-mobile{
+    position: fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    overflow: auto;
+    background:#fffef8;
+    padding-top:47px;
+    z-index: 10;
+    display: none;
+    box-sizing: border-box;
+}
+.second-block-mobile .delete-icon {
+    width: 0.4rem;
+    height: 0.4rem;
+    margin:0 auto;
+    background: url("/images/introduce/add.png") no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    -webkit-border-radius: 0.4rem;
+    -moz-border-radius: 0.4rem;
+    border-radius: 0.4rem;
+    -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.second-block-mobile .word-title-mobile{
+    padding-top:0.2rem;
+}
+.hide-p-mobile p{
+    line-height: 0.35rem;
+    text-align: left;
+    margin-bottom: 0.2rem;
+    text-indent: 0.4rem;
+	color: rgba(0,0,0,.8);
+}
+/*轮播图模块*/
+.banner-bg-mobile{
+    position: absolute;
+    width:100%;
+    height:100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+.img1{
+    background: url("/images/introduce/1.jpg") center no-repeat;
+    -webkit-background-size:cover;
+    background-size:cover;
+}
+.img2{
+    background: url("/images/introduce/2.jpg") center no-repeat;
+    -webkit-background-size:cover;
+    background-size:cover;
+}
+.img3{
+    background: url("/images/introduce/3.jpg") center no-repeat;
+    -webkit-background-size:cover;
+    background-size:cover;
+}
+.img4{
+    background: url("/images/introduce/4.jpg") center no-repeat;
+    -webkit-background-size:cover;
+    background-size:cover;
+}
+
+.slide-banner-mobile{
+    position: fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    overflow: auto;
+    background:#fffef8;
+    padding-top:47px;
+    z-index: 10;
+    box-sizing: border-box;
+    display: none;
+}
+.slide-banner-mobile .swiper-slide{
+    background: #fffef8;
+}
+.hide-icon {
+    width: 0.3rem;
+    height: 0.3rem;
+    margin:0.08rem auto 0;
+    background: url("/images/introduce/add.png") no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    -webkit-border-radius: 0.3rem;
+    -moz-border-radius: 0.3rem;
+    border-radius: 0.3rem;
+    -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.slide-banner-mobile .container p{
+    text-indent:0.3rem;
+    margin-bottom:0.2rem;
+    line-height: 0.25rem;
+}
+.slide-banner-mobile .container .p-title{
+    font-size:0.16rem;
+    text-align: center;
+    color: #9D8455;
+    margin:0.25rem 0 0.15rem;
+}
+
+/*毛笔字模块*/
+.third-block-mobile-pop{
+    position: fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    overflow: auto;
+    background:#fffef8;
+    padding-top:47px;
+    z-index: 10;
+    box-sizing: border-box;
+    display: none;
+}
+.third-block-mobile-pop .swiper-slide{
+    background: #fffef8;
+}
+.third-block-mobile-pop .container p{
+    text-indent:0.3rem;
+    margin-bottom:0.2rem;
+    line-height: 0.25rem;
+}
+.third-block-mobile-pop .container .p-word-num{
+    font-size:0.12rem;
+    text-align: center;
+    color: #856424;
+    margin:0.25rem 0 0.07rem;
+}
+.third-block-mobile-pop .container .p-title{
+    font-size:0.16rem;
+    text-align: center;
+    color: rgba(0,0,0,.8);
+    margin:0 0 0.2rem;
+}
+/*移动端样式*/
+@media (max-width: 767px) {
+    .second-block li{
+        width:0.7rem;
+        margin-right:0.05rem;
+    }
+    .about-brief{
+        padding-top:0;
+    }
+    .about-brief .brief-detail{
+        width:100%;
+    }
+    /*轮播图模块*/
+    .slide-banner{
+        width:100vw;
+        height:52vw;
+        min-height: auto;
+    }
+	.addshow{
+		bottom: 0.2rem;
+	}
+    .slide-content{
+        width:100vw;
+        height:52vw;
+        min-height: auto;
+        padding-top: 40px;
+    }
+    .slide-banner .swiper-container-horizontal > .swiper-pagination-bullets, .slide-banner .swiper-pagination-custom, .slide-banner .swiper-pagination-fraction{
+        bottom: 0.1rem;
+    }
+    .slide-banner .banner-bg{
+        min-width: auto;
+        height:100%;
+        left:-25%;
+    }
+    .slide-banner .blackbg{
+        min-width: auto;
+        height:100%;
+    }
+    .slide-content .onehand .large-size{
+        font-size:0.3rem;
+        letter-spacing: 0.05rem;
+        color: rgba(203,164,92,.98);
+    }
+    .slide-content .onehand .content1 {
+        font-size: 0.14rem;
+        letter-spacing: 0.1rem;
+        margin-bottom: 0.4rem;
+    }
+    .slide-content .onehand .content2 {
+        font-size: 0.16rem;
+        margin-bottom: 0.1rem;
+    }
+    .slide-content .onehand .content3 {
+        font-size: 0.18rem;
+        margin-bottom: 0.2rem;
+        line-height: 0.3rem;
+    }
+    .swiper-button-next, .swiper-button-prev{
+        width:0.15rem;
+        height:0.44rem;
+        margin-top:-0.22rem;
+        -webkit-background-size:100% 100%;
+        background-size:100% 100%;
+    }
+    .slide-banner-mobile .swiper-button-prev{
+        top:0;
+        margin-top:0;
+        background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%239D8455'%2F%3E%3C%2Fsvg%3E");
+    }
+    .slide-banner-mobile .swiper-button-next{
+        top:0;
+        margin-top:0;
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%239D8455'%2F%3E%3C%2Fsvg%3E");
+    }
+
+        /*毛笔字模块*/
+    .third-block-mobile{
+        padding:0.3rem 0 0.15rem;
+        position: relative;
+    }
+    .third-block-mobile .third-maobi-container{
+        width:75%;
+        margin:0 16% 0 9%;
+    }
+    .third-block-mobile .third-maobi-container .third-list{
+        width:20%;
+        height:2.2rem;
+        margin-bottom:0.15rem;
+    }
+    .third-block-mobile .third-maobi-container .third-list .list-container img{
+        height:100%;
+    }
+    .third-block .third-maobi-container .maobi-title{
+        position: absolute;
+        right:0;
+        top:0.3rem;
+        width:15%;
+        height:4.55rem;
+    }
+    .third-block-mobile .maobi-title .list-container{
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    .third-block-mobile .maobi-title .list-container img{
+        display: block;
+        width:70%;
+        margin:0 auto;
+    }
+    .third-block-mobile-pop .swiper-button-prev{
+        top:0;
+        margin-top:0;
+        background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%239D8455'%2F%3E%3C%2Fsvg%3E");
+    }
+    .third-block-mobile-pop .swiper-button-next{
+        top:0;
+        margin-top:0;
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%239D8455'%2F%3E%3C%2Fsvg%3E");
+    }
+
+    /*相关下载模块*/
+    .sixth-block{
+        padding:0.3rem 0 0.16rem;
+    }
+    .sixth-block .sixth-container .sixth-title{
+        font-size:0.18rem;
+        margin-bottom:0.1rem;
+        color: #C82821;
+    }
+    .sixth-block .sixth-container .sixth-all{
+        margin-bottom:0.2rem;
+    }
+    .sixth-list-container .sixth-list-column{
+        width:45%;
+        margin-left:2%;
+        margin-right:3%;
+    }
+    .sixth-list-container .sixth-list-column .sixth-item{
+        margin-bottom:0.14rem;
+    }
+    .sixth-list-container .sixth-list-column .sixth-item .sixth-item-title{
+        padding:0.08rem 0.2rem 0.08rem 0.08rem;
+        font-size: 0.12rem;
+    }
+    .sixth-list-container .sixth-list-column .sixth-item .icon-download{
+        right:0.05rem;
+        width:0.15rem;
+        height:0.15rem;
+    }
+}
