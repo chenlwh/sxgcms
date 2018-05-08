@@ -44,9 +44,6 @@
 		.visibility0{
 			display:none !important;
 		}
-        .ad_url {
-            cursor:default;
-        }
 	</style>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9 ]>
@@ -61,20 +58,20 @@
 <div class="Header">
     <div class="navigation" style="top: 24px;">
         <div class="container clearfix">
-            <a href="#" class="nav-logo"><img src="images/logo-small.png"></a>
+            <a href="index.html" class="nav-logo"><img src="images/logo-small.png"></a>
             <nav class="header-menu hidden-sm hidden-xs hidden-mxs">
                 <ul>
                     <li>
                         <a href="introduce.html" class="nav-a" style="color: rgb(255, 255, 255);">关于圣行</a>
                     </li>
                     <li>
-                        <a href="industries/techlogistics/" class="nav-a" style="color: rgb(255, 255, 255);">企业文化</a>
+                        <a href="culture.html" class="nav-a" style="color: rgb(255, 255, 255);">企业文化</a>
                     </li>
                     <li>
-                        <a href="newscenter/" class="nav-a" style="color: rgb(255, 255, 255);">圣行资讯</a>
+                        <a href="newscenter.html" class="nav-a" style="color: rgb(255, 255, 255);">圣行资讯</a>
                     </li>
                     <li>
-                        <a href="#" class="nav-a" target="_blank" style="color: rgb(255, 255, 255);">人才招募</a>
+                        <a href="join.html" class="nav-a" style="color: rgb(255, 255, 255);">人才招募</a>
                     </li>
                 </ul>
             </nav>
@@ -176,7 +173,7 @@
                 <div class="container active-text clearfix">
                     <span>
                         <h3 class="hide">圣行新闻</h3>
-                        <a href="newscenter/" class="all-news">全部 <img src="images/right(1).png"></a>
+                        <a href="newscenter.html" class="all-news">全部 <img src="images/right(1).png"></a>
                     </span>
                     <div id="page4news" class="news-list clearfix"></div>
                 </div>
@@ -605,14 +602,6 @@ $(".pagination .pagination-stop").click(function(){
     else{
         $(this).find("img").addClass("start");
         $(this).find("img").attr("src","/images/stop.png");
-    }
-});
-</script>
-
-<script>
-$(".ad_url").click(function () {
-    if ($(this).attr("data-id") != "") {
-        window.open("" + $(this).attr("data-id"));
     }
 });
 </script>

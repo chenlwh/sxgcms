@@ -65,7 +65,7 @@ window.onload=function(){
 	    }
 	    for(var i=0;i<length;i++){
 	    	var data = dataList[i];
-	    	page4html += "<a href='"+data.id+"' class='news' style='display:block;background-image:url("+data.picPath+")' target='_blank'>";
+	    	page4html += "<a href='news.html?id="+data.id+"' class='news' style='display:block;background-image:url("+data.picPath+")' target='_blank'>";
 	    	page4html += "<div class='news-opacity'><div class='opacity-txt'><div class='line'></div>";
 	    	page4html += "<p>"+data.title+"</p></div></div></a>";
 	    }

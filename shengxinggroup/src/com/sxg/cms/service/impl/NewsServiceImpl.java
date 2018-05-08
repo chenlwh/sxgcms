@@ -26,4 +26,9 @@ public class NewsServiceImpl implements NewsService {
 		
 	}
 
+	@Override
+	public News findById(String id) {
+		return newsDao.findById(id);
+	}
+
 }

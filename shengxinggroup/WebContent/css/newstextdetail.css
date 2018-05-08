@@ -1,0 +1,281 @@
+.second-block {
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 0.01rem solid rgba(0, 0, 0, 0.15);
+}
+
+.second-block ul {
+  list-style: none;
+  padding: 0.2rem 0;
+  margin: 0;
+  background: #fff;
+}
+
+.second-block li {
+  list-style: none;
+  display: inline-block;
+  margin-right: 0.8rem;
+  text-align: center;
+  width: 0.8rem;
+  font-size: 0.14rem;
+}
+
+.second-block li a {
+  color: #767676;
+  text-decoration: none;
+}
+
+.second-block li a img {
+  display: block;
+  margin: 0 auto;
+}
+
+.second-block li a span {
+  display: block;
+  margin-top: 0.05rem;
+  height: 0.2rem;
+  line-height: 0.2rem;
+}
+
+.second-block li:last-child {
+  margin-right: 0;
+}
+
+.second-block .active-submenu {
+  color: #c82821;
+}
+
+.third-block {
+  width: 100%;
+  padding-top: 0.5rem;
+}
+
+a.goback {
+  color: rgba(0, 0, 0, 0.58);
+  font-size: 0.14rem;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 0.15rem;
+}
+a.goback img {
+  vertical-align: middle;
+  width: 0.08rem;
+  margin-right: 0.08rem;
+}
+
+.content-title {
+  text-align: center;
+  width: 100%;
+  font-size: 0.3rem;
+  margin: 0 0 0.15rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.content-brief {
+  width: 100%;
+  text-align: center;
+  font-size: 0;
+  color: rgba(0, 0, 0, 0.54);
+  margin-bottom: 0.4rem;
+}
+.content-brief span {
+  font-size: 0.2rem;
+}
+.content-brief .fen {
+  color: rgba(0, 0, 0, 0.15);
+  margin: 0 0.15rem;
+  font-size: 0.1rem;
+  vertical-align: 0.03rem;
+}
+.content-brief .div-icon {
+  margin-left: 0.58rem;
+  display: inline-block;
+}
+.content-brief .div-icon img {
+  height: 0.18rem;
+  margin-right: 0.18rem;
+  vertical-align: text-bottom;
+}
+
+.content-img {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+.content-img img {
+  width: 100%;
+}
+
+.content-detail {
+  margin: 0.4rem 0;
+  width: 100%;
+  color: rgba(0, 0, 0, 0.9);
+  text-align: left;
+  line-height: 0.35rem;
+}
+.content-detail p {
+  margin: 0;
+  text-indent:2em;
+}
+.content-detail p img{
+	/*width:100%;
+	width:auto;
+	height:auto;*/
+    max-width:100%;
+}
+.content-bottom {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 0.83rem;
+  font-size: 0.14rem;
+}
+.content-bottom a.a-previous {
+  float: left;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.8);
+}
+.content-bottom a.a-previous img {
+  vertical-align: top;
+  width: 0.14rem;
+  margin-right: 0.1rem;
+}
+.content-bottom a.a-next {
+  float: right;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.8);
+}
+.content-bottom a.a-next img {
+  vertical-align: top;
+  width: 0.14rem;
+  margin-left: 0.1rem;
+}
+.content-bottom a.a-previous-mobile {
+  float: left;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.54);
+  width: 0.75rem;
+  height: 0.3rem;
+  line-height: 0.3rem;
+  font-size: 0.14rem;
+  display: block;
+  border: 0.01rem solid rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+.content-bottom a.a-previous-mobile img {
+  vertical-align: middle;
+  width: 0.12rem;
+}
+.content-bottom a.a-next-mobile {
+  float: right;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.54);
+  width: 0.75rem;
+  height: 0.3rem;
+  line-height: 0.3rem;
+  font-size: 0.14rem;
+  display: block;
+  border: 0.01rem solid rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+.content-bottom a.a-next-mobile img {
+  vertical-align: middle;
+  width: 0.12rem;
+}
+
+.content-share {
+  width: 100%;
+  padding: 0.15rem 0 0.2rem;
+  font-size: 0;
+  text-align: center;
+}
+.content-share .share-item {
+  display: inline-block;
+  margin-right: 0.1rem;
+}
+.content-share .share-item span {
+  font-size: 0.12rem;
+  color: rgba(0, 0, 0, 0.38);
+}
+.content-share .share-item .item-logo {
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-bottom: 0.07rem;
+  -webkit-border-radius: 0.45rem;
+  -moz-border-radius: 0.45rem;
+  border-radius: 0.45rem;
+}
+.content-share .share-item .wechatLogo {
+  border: 0.01rem solid rgba(49, 214, 49, 0.15);
+  background: url("/images/wechatL.png") center center no-repeat;
+}
+.content-share .share-item .sinaLogo {
+  border: 0.01rem solid rgba(214, 56, 49, 0.15);
+  background: url("/images/sinaWeiboL.png") center center no-repeat;
+}
+.content-share .share-item .linkinLogo {
+  border: 0.01rem solid rgba(0, 118, 183, 0.15);
+  background: url("/images/linkinL.png") center center no-repeat;
+}
+.content-share .share-item .twitterLogo {
+  border: 0.01rem solid rgba(0, 177, 234, 0.15);
+  background: url("/images/twitterL.png") center center no-repeat;
+}
+.content-share .share-item .fbLogo {
+  border: 0.01rem solid rgba(59, 88, 156, 0.15);
+  background: url("/images/fbL.png") center center no-repeat;
+}
+.content-share .share-item:last-child {
+  margin-right: 0;
+}
+
+
+/*mobile*/
+@media (max-width: 767px) {
+  .second-block li {
+    width: 0.7rem;
+    margin-right: 0.3rem;
+  }
+
+  .third-block {
+    padding-top: 63px;
+  }
+
+  .content-title {
+    text-align: left;
+    font-size: 0.16rem;
+    line-height: 0.25rem;
+    margin-bottom: 0.07rem;
+  }
+
+  .content-brief {
+    text-align: left;
+    margin-bottom: 0.1rem;
+  }
+  .content-brief span {
+    font-size: 0.12rem;
+  }
+  .content-brief .fen {
+    margin: 0 0.1rem;
+    vertical-align: 0.01rem;
+  }
+
+  .content-img {
+    width: 100%;
+  }
+
+  .content-detail {
+    margin: 0.15rem 0 0.25rem;
+    line-height: 0.23rem;
+  }
+  .content-detail p {
+    margin: 0 0 0.2rem;
+  }
+
+  .content-bottom {
+    margin: 0;
+    padding: 0 0.15rem 0.15rem;
+    box-sizing: border-box;
+    border-bottom: 0.01rem solid rgba(0, 0, 0, 0.1);
+  }
+}

@@ -7,5 +7,6 @@ import com.sxg.cms.entity.News;
 public interface NewsDao {
 	public void save(News user); 
 	public List<News> list(); 
+	public News findById(String id); 
 
 }

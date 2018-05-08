@@ -32,5 +32,17 @@ public class NewsDaoImpl extends HibernateDaoSupport implements NewsDao {
 		return list;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public News findById(String id) {
+		String hql = "from News where id =?";
+		List<News> list = (List<News>)  super.getHibernateTemplate().find(hql,id);
+		if(list.size()==1) {
+			return list.get(0);
+		}else {
+			return null;
+		}
+	}
+
 
 }

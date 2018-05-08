@@ -48,6 +48,23 @@ public class NewsController {
 	}
 	
 	@ResponseBody
+	@RequestMapping(value = "/findById")
+	public Map<String,Object> findById(@RequestParam("id") String id) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		try {
+			News news = newsService.findById(id);
+			result.put("suc", "yes");
+			result.put("data", news);
+
+		} catch (Exception e) {
+			result.put("suc", "no");
+			result.put("msg", "error");
+		}
+		return result;
+
+	}
+	
+	@ResponseBody
 	@RequestMapping(value = "/save", method = { RequestMethod.POST })
 	public Map<String, Object> save(HttpServletRequest request,@RequestParam("imageFile") MultipartFile imageFile,
 			@RequestParam(value="id",required=false) String id,@RequestParam("title") String title,
