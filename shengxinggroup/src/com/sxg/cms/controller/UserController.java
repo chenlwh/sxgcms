@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -27,12 +28,11 @@ import com.sxg.cms.service.UserService;
 public class UserController {
 
 	@Autowired
-
 	private UserService userService;
 
 	@RequestMapping(value = "/login")
-	public String login(HttpServletRequest request, @RequestParam("username") String username,
-			@RequestParam("password") String password) {
+	public void login(HttpServletRequest request, HttpServletResponse response, 
+			@RequestParam("username") String username, @RequestParam("password") String password) {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {
 			User user = userService.login(username, password);
@@ -40,8 +40,10 @@ public class UserController {
 				HttpSession session = request.getSession();
 				session.setAttribute("user", user);
 				session.setAttribute("username", user.getUsername());
-				return "main";
+				response.sendRedirect("../admin/main.html");
 
+			}else {
+				response.sendRedirect("../login.jsp?msg=error");
 			}
 			result.put("suc", "yes");
 			result.put("data", user);
@@ -50,7 +52,7 @@ public class UserController {
 			result.put("suc", "no");
 			result.put("msg", "error");
 		}
-		return "login";
+//		return "login";
 
 	}
 	

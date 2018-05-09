@@ -29,12 +29,12 @@
 					</h1>
 				</div>
 
-				<form action="user/login" class="form-horizontal" method="post">
+				<form action="user/login" class="form-horizontal" method="post" onsubmit="javascript:return check();">
 					<div class="form-group">
 						<label for="username" class="col-sm-2 control-label"
 							style="text-align: left">用户名：</label>
 						<div class="col-sm-5">
-							<input type="text" class="form-control" name="username"
+							<input type="text" class="form-control" id="username" name="username"
 								maxlength=32>
 						</div>
 
@@ -45,12 +45,17 @@
 						<label for="password" class="col-sm-2 control-label"
 							style="text-align: left">密		码：</label>
 						<div class="col-sm-5">
-							<input type="text" class="form-control" name="password"
+							<input type="password" class="form-control" id="password" name="password"
 								maxlength=32>
 						</div>
 
 					</div>
-					<p><span style="color: red;">${returnMsg }</span></p>
+					
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<span id="msg" style="color: red;"></span>
+						</div>
+					</div>
 					
 					<br>
 
@@ -65,7 +70,39 @@
 
 		</div>
 	</div>
+<script>
+$().ready(function(){	
+	var error = GetQueryString("msg");
+	if(error=="error"){
+		$('#msg').html("用户名/密码错误");
+	}
+	
 
+});
+function check(){
+	var name = $("#username").val();
+	var password = $("#password").val();
+	
+	if(name==null||name==""){
+		$('#msg').html("用户名不能为空");
+		return false;
+	}else if(password==null||password==""){
+		$('#msg').html("密码不能为空");
+		return false;
+	}
+	return true;
+}
+
+function GetQueryString(param){
+	var reg = new RegExp("(^|&)"+ param +"=([^&]*)(&|$)");
+	var r = window.location.search.substr(1).match(reg);
+	if(r!=null){
+		return unescape(r[2]);
+	}else{
+		return null;
+	}
+}
+</script>
 
 </body>
 </html>
