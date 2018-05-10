@@ -2,6 +2,12 @@
  * 
  */
 $().ready(function(){
+	$.post("../user/user",{},function(res){
+	    var data = res.data;
+	    if(data.type!="0"){
+	    	$("#userLi").css("display","none");
+	    }
+	});
 
 });
 

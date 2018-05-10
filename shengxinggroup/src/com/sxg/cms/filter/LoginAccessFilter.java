@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.sxg.cms.entity.User;
+
 public class LoginAccessFilter implements Filter{
 
 	@Override
@@ -19,18 +21,20 @@ public class LoginAccessFilter implements Filter{
 		HttpServletRequest req = (HttpServletRequest) request;  
         HttpServletResponse resp = (HttpServletResponse) response;  
         String requestPath = req.getServletPath();
-        if(requestPath.equals("/login.jsp")) {
-        	chain.doFilter(req, resp);  
-        	return ;
-        }
         String path = req.getContextPath();  
         String basePath = req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+path;  
         HttpSession session = req.getSession(true);  
         String username = (String) session.getAttribute("username");  
+        User user = (User) session.getAttribute("user");  
         if (username == null || "".equals(username)) {  
             resp.sendRedirect(basePath+"/login.jsp");  
-        } else {  
-            chain.doFilter(req, resp);  
+        }else { 
+        	if(requestPath.equals("/admin/user.html")&&user.getType()!="0") {
+        		resp.sendRedirect(basePath+"/login.jsp");  
+            }else {
+            	chain.doFilter(req, resp);  
+            }
+            
         }  
 	}
 

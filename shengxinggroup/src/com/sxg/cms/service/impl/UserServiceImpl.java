@@ -22,15 +22,19 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public void save(String id,String name, String password, String accessid) {
+	public void save(String id,String name, String password, String showname, String accessid) {
 		User user = new User();
 		if(id!=null&&id.length()>0) {
 			user.setId(id);
 		}
 		user.setUsername(name);
 		user.setPassword(password);
+		user.setShowname(showname);
 		user.setCreatedTime(new Date());
 		user.setAccessid(accessid);
+		if("1".equals(accessid)) {
+			user.setType("0");
+		}
 		
 		userDao.save(user);
 		

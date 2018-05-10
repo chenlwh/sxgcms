@@ -90,8 +90,18 @@ function initUserTable(){
 			{field:"username",title:"用户名",width:"20%"},
 			{field:"password",title:"密码",width:"20%"},
 			{field:"createdTime",title:"创建时间",width:"20%"},
-			{field:"showname",title:"别名",width:"20%"},
-			{field:"accessid",title:"权限",width:"20%"}
+			{field:"showname",title:"显示名称",width:"20%"},
+			{field:"accessid",title:"权限",width:"20%",
+				formatter:function(value,row,index){
+					if(value!=null&&value!=""){
+						value = value.replace("1","管理员");
+						value = value.replace("2","新闻");
+						value = value.replace("3","公告");
+						value = value.replace("4","研究");
+						value = value.replace("5","人才招聘");
+					}
+					return value;
+				}}
 		]]
 	});
 }

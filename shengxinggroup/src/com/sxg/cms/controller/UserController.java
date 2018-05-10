@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -74,13 +73,32 @@ public class UserController {
 	}
 	
 	@ResponseBody
+	@RequestMapping(value = "/user")
+	public Map<String,Object> user(HttpServletRequest request) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		try {
+			HttpSession session = request.getSession();
+			result.put("suc", "yes");
+			result.put("data", session.getAttribute("user"));
+
+		} catch (Exception e) {
+			result.put("suc", "no");
+			result.put("msg", "error");
+		}
+		return result;
+
+	}
+	
+	@ResponseBody
 	@RequestMapping(value = "/save")
-	public Map<String,Object> save(@RequestParam(value="id",required=false) String id,@RequestParam("username") String username,
+	public Map<String,Object> save(@RequestParam(value="id",required=false) String id,
+			@RequestParam("username") String username,
 			@RequestParam("password") String password,
+			@RequestParam("showname") String showname,
 			@RequestParam("accessid") String accessid) {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {
-			userService.save(id,username, password,accessid);
+			userService.save(id,username, password,showname,accessid);
 			result.put("suc", "yes");
 			result.put("msg", "success");
 
@@ -134,7 +152,6 @@ public class UserController {
 	public Map<String, Object> upload(HttpServletRequest request,HttpServletResponse response, @RequestParam("vedioFile") MultipartFile vedioFile) {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {	     
-//			StSring path = request.getServletContext().getContextPath();
 			String path = request.getSession().getServletContext().getRealPath("/");
 			File vedioPath = new File(path+"vedio.mp4");
 			vedioFile.transferTo(vedioPath);
