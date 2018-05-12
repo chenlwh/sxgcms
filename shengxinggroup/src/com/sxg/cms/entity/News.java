@@ -44,6 +44,8 @@ public class News implements Serializable {
 	private Date releaseTime;
 	
 	private String status;
+	
+	private String userid;
 
 	public String getId() {
 		return id;
@@ -115,6 +117,14 @@ public class News implements Serializable {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public String getUserid() {
+		return userid;
+	}
+
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 
 

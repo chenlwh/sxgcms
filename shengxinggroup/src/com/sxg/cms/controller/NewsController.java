@@ -22,16 +22,13 @@ import com.sxg.cms.entity.User;
 import com.sxg.cms.service.NewsService;
 
 @Controller
-
-@RequestMapping("/news")
-
 public class NewsController {
 
 	@Autowired
 	private NewsService newsService;
 	
 	@ResponseBody
-	@RequestMapping(value = "/list")
+	@RequestMapping(value = "/news/list")
 	public Map<String,Object> list() {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {
@@ -48,7 +45,7 @@ public class NewsController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/findById")
+	@RequestMapping(value = "/news/findById")
 	public Map<String,Object> findById(@RequestParam("id") String id) {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {
@@ -64,9 +61,8 @@ public class NewsController {
 
 	}
 	
-	@ResponseBody
-	@RequestMapping(value = "/save", method = { RequestMethod.POST })
-	public Map<String, Object> save(HttpServletRequest request,@RequestParam("imageFile") MultipartFile imageFile,
+	@RequestMapping(value = "/admin/save", method = { RequestMethod.POST })
+	public String save(HttpServletRequest request,@RequestParam("imageFile") MultipartFile imageFile,
 			@RequestParam(value="id",required=false) String id,@RequestParam("title") String title,
 			@RequestParam("content") String content,@RequestParam("accessid") String accessid) {
 		Map<String, Object> result = new HashMap<String, Object>();
@@ -84,6 +80,7 @@ public class NewsController {
 			news.setAccessid(accessid);
 			news.setCreatedTime(new Date());
 			news.setCreater(user.getShowname());
+			news.setUserid(user.getId());
 
 			newsService.save(news);
 			
@@ -95,6 +92,57 @@ public class NewsController {
 			result.put("msg", e.getMessage());
 			e.printStackTrace();
 		}
+		return "newsList";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/news/admin/list")
+	public Map<String,Object> adminList(HttpServletRequest request) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		try {
+			User user = (User) request.getSession().getAttribute("user");
+			List <News> list = newsService.adminList(user);
+			result.put("suc", "yes");
+			result.put("data", list);
+
+		} catch (Exception e) {
+			result.put("suc", "no");
+			result.put("msg", "error");
+		}
 		return result;
+
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/news/release")
+	public Map<String,Object> release(@RequestParam("id") String id) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		try {
+			newsService.updateRrelease(id);
+			result.put("suc", "yes");
+
+		} catch (Exception e) {
+			result.put("suc", "no");
+			result.put("msg", "error");
+			e.printStackTrace();
+		}
+		return result;
+
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/news/delete")
+	public Map<String,Object> delete(@RequestParam("id") String id) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		try {
+			newsService.delete(id);
+			result.put("suc", "yes");
+
+		} catch (Exception e) {
+			result.put("suc", "no");
+			result.put("msg", "error");
+		}
+		return result;
+
 	}
 }

@@ -29,7 +29,7 @@ public class LoginAccessFilter implements Filter{
         if (username == null || "".equals(username)) {  
             resp.sendRedirect(basePath+"/login.jsp");  
         }else { 
-        	if(requestPath.equals("/admin/user.html")&&user.getType()!="0") {
+        	if(requestPath.equals("/admin/user.html")&&!"0".equals(user.getType())) {
         		resp.sendRedirect(basePath+"/login.jsp");  
             }else {
             	chain.doFilter(req, resp);  
