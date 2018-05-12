@@ -39,6 +39,11 @@ public class News implements Serializable {
 	private String picPath;
 	
 	private String accessid;
+	
+	@Column(name = "RELEASE_TIME")
+	private Date releaseTime;
+	
+	private String status;
 
 	public String getId() {
 		return id;
@@ -94,6 +99,22 @@ public class News implements Serializable {
 
 	public void setAccessid(String accessid) {
 		this.accessid = accessid;
+	}
+
+	public Date getReleaseTime() {
+		return releaseTime;
+	}
+
+	public void setReleaseTime(Date releaseTime) {
+		this.releaseTime = releaseTime;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 
