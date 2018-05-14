@@ -28,11 +28,6 @@ p {
   line-height: 2;
 }
 
-.swiper-container .swiper-wrapper .cut-background {
-  position: absolute;
-  z-index: -50;
-}
-
 .line-container {
   border-right: 1px solid rgba(0, 0, 0, 0.05);
   height: 100%;
@@ -503,7 +498,7 @@ display:none;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
 }
 .carousel-1 .carousel-text .picture-text .opacity-p {
-  padding: 1em 1.5em;
+  padding: 0.4em 1.5em;
   line-height: 2em;
   text-align: left;
   overflow: hidden;
@@ -527,7 +522,7 @@ display:none;
 		margin-bottom:0;	
 	}
 	.carousel-1 .carousel-text .picture-text.active-text {
-	  width: 38em;
+	  width: 58em;
 	}
 	.carousel-1 .carousel-text .picture-text {
 		margin-top: 2em;

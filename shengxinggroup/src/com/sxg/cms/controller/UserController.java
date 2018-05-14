@@ -40,7 +40,6 @@ public class UserController {
 				session.setAttribute("user", user);
 				session.setAttribute("username", user.getUsername());
 				response.sendRedirect("../admin/main.html");
-
 			}else {
 				response.sendRedirect("../login.jsp?msg=error");
 			}
@@ -51,8 +50,6 @@ public class UserController {
 			result.put("suc", "no");
 			result.put("msg", "error");
 		}
-//		return "login";
-
 	}
 	
 	@ResponseBody
@@ -152,8 +149,11 @@ public class UserController {
 	public Map<String, Object> upload(HttpServletRequest request,HttpServletResponse response, @RequestParam("vedioFile") MultipartFile vedioFile) {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {	     
-			String path = request.getSession().getServletContext().getRealPath("/");
-			File vedioPath = new File(path+"vedio.mp4");
+			String path = request.getServletContext().getRealPath("/");
+			File vedioPath = new File(path+"resource/vedio.mp4");
+			if(vedioPath.exists()){
+				vedioPath.delete();
+			}
 			vedioFile.transferTo(vedioPath);
 
 			result.put("suc", "yes");
@@ -165,5 +165,22 @@ public class UserController {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	
+	@RequestMapping(value = "/logout")
+	public void logout(HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		try {
+			HttpSession session = request.getSession();
+			session.removeAttribute("user");
+			session.removeAttribute("username");
+			session.invalidate();
+			
+			response.sendRedirect("../login.jsp");
+			result.put("suc", "yes");
+		} catch (Exception e) {
+			result.put("suc", "no");
+			result.put("msg", e.getMessage());
+		}
 	}
 }

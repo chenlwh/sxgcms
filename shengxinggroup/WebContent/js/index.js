@@ -11,11 +11,6 @@ window.onload=function(){
 	var news_contaner=$(".news-background").height();
 	var technology_contaner=$(".technology-picture").height();
 	var about_container=$(".banner").height();
-	set_picture_rate(width, height, $(".cut-background"));
-	set_picture_rate(width, height, $(".cut-bg"));
-	set_picture_rate(width,news_contaner,$(".news-bg"));
-	set_picture_rate(width,technology_contaner,$(".cut-technology"));
-	set_picture_rate(width,about_container,$(".cut-about"));
 	setInterval(function (){ pull();},500);
 	$(".scroll").css("margin-bottom",$(".advertisement").height());
 	var num={"red":13,"orange":6,"yellow":8,"green":2,"grey":5,"blue":1};
@@ -120,11 +115,6 @@ $(window).resize(function () {
     var news_contaner=$(".news-background").height();
     var technology_contaner=$(".technology-picture").height();
     var about_container=$(".banner").height();
-    set_picture_rate(width, height, $(".cut-background"));
-    set_picture_rate(width, height, $(".cut-bg"));
-    set_picture_rate(width,news_contaner,$(".news-bg"));
-    set_picture_rate(width,technology_contaner,$(".cut-technology"));
-    set_picture_rate(width,about_container,$(".cut-about"));
     setInterval(function (){ pull();},500);
     $(".scroll").css("margin-bottom",$(".advertisement").height());
 });
