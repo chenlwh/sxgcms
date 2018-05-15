@@ -18,12 +18,11 @@
 
 	<mvc:default-servlet-handler />
 	
-<!-- 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
          <property name="prefix" value="/admin/"></property>
          <property name="suffix" value=".html"></property>
     </bean>
- -->
+
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />  
 
 </beans>
