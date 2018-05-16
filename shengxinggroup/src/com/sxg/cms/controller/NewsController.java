@@ -68,7 +68,7 @@ public class NewsController {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {	     
 			String imagePath = "resource/"+UUID.randomUUID().toString()+".png";
-			String path = request.getSession().getServletContext().getRealPath("/");
+			String path = request.getServletContext().getRealPath("/");
 			File vedioPath = new File(path+imagePath);
 			imageFile.transferTo(vedioPath);
 			User user = (User) request.getSession().getAttribute("user");
