@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,7 @@ import com.sxg.cms.service.UserService;
 @RequestMapping("/user")
 
 public class UserController {
+	private final Logger logger = Logger.getLogger(this.getClass());
 
 	@Autowired
 	private UserService userService;
@@ -34,13 +36,20 @@ public class UserController {
 			@RequestParam("username") String username, @RequestParam("password") String password) {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {
+			logger.info("-------------------------login begin");
 			User user = userService.login(username, password);
+			logger.info("-------------------------login user "+user);
 			if (user != null) {
+				logger.info("-------------------------login request "+request);
 				HttpSession session = request.getSession();
+				logger.info("-------------------------login session "+session);
 				session.setAttribute("user", user);
 				session.setAttribute("username", user.getUsername());
 				response.sendRedirect("../admin/main.html");
+				
+				logger.info("-------------------------login end ");
 			}else {
+				logger.info("-------------------------login error ");
 				response.sendRedirect("../login.jsp?msg=error");
 			}
 			result.put("suc", "yes");

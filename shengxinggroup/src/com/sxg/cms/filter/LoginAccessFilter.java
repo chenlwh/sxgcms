@@ -12,27 +12,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import com.sxg.cms.entity.User;
 
 public class LoginAccessFilter implements Filter{
-
+	private final Logger logger = Logger.getLogger(this.getClass());
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+		logger.info("-------------------------filter request "+request);
 		HttpServletRequest req = (HttpServletRequest) request;  
         HttpServletResponse resp = (HttpServletResponse) response;  
         String requestPath = req.getServletPath();
         String path = req.getContextPath();  
         String basePath = req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+path;  
-        HttpSession session = req.getSession(true);  
+        HttpSession session = req.getSession();  
+        logger.info("-------------------------filter session "+session);
         String username = (String) session.getAttribute("username");  
+        
+        logger.info("-------------------------filter username "+username);
         User user = (User) session.getAttribute("user");  
+        
+        logger.info("-------------------------filter user "+user);
         if (username == null || "".equals(username)) {  
             resp.sendRedirect(basePath+"/login.jsp");  
         }else { 
         	if(requestPath.equals("/admin/user.html")&&!"0".equals(user.getType())) {
         		resp.sendRedirect(basePath+"/login.jsp");  
             }else {
+            	
+            	logger.info("-------------------------filter username "+username);
             	chain.doFilter(req, resp);  
             }
             
