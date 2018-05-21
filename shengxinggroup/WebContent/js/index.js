@@ -10,7 +10,10 @@ window.onload=function(){
     	$.post("introduce/list",{type:"4"},function(res){
     		var data = res.data;
     		if(data!=null){
-    			$("#homeGroup").html(data.content);
+    			var content = data.content;
+    			var reg = new RegExp("<br/>", "g");
+    			content = content.replace(reg, "</div><div class='opacity-p p'>");
+    			$("#homeGroup").html("<div class='opacity-p p'>"+content+"</div>");
     		}
     	});
 
