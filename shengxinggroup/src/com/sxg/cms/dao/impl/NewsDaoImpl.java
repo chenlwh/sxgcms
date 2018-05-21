@@ -1,12 +1,13 @@
 package com.sxg.cms.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.sxg.cms.dao.NewsDao;
 import com.sxg.cms.entity.News;
@@ -28,9 +29,18 @@ public class NewsDaoImpl extends HibernateDaoSupport implements NewsDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<News> list() {
+	public List<News> list(String accessid,String pageIndex) {
 		String hql = "from News";
-		List<News> list = (List<News>) super.getHibernateTemplate().find(hql);
+		List<News> list = new ArrayList<News>();
+		if("page4".equals(accessid)) {
+			hql = "from News where accessid = '2' and status='1' order by releaseTime desc ";
+			HibernateTemplate template = super.getHibernateTemplate();
+			template.setMaxResults(10);
+			list = (List<News>) template.find(hql);
+		}else {
+			list = (List<News>) super.getHibernateTemplate().find(hql);
+		}
+		
 		return list;
 	}
 

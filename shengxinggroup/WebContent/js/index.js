@@ -1,6 +1,3 @@
-/**
- * Created by Pactera on 2017/5/12.
- */
 window.onload=function(){
     var width=$(window).width();
     var height=$(window).height();
@@ -8,6 +5,17 @@ window.onload=function(){
     if ($("#video").length != 0) {
         document.getElementById('video').play();
     }
+    
+    $().ready(function(){	
+    	$.post("introduce/list",{type:"4"},function(res){
+    		var data = res.data;
+    		if(data!=null){
+    			$("#homeGroup").html(data.content);
+    		}
+    	});
+
+    });
+    
 	var news_contaner=$(".news-background").height();
 	var technology_contaner=$(".technology-picture").height();
 	var about_container=$(".banner").height();

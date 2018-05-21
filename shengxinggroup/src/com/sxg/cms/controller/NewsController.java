@@ -29,10 +29,11 @@ public class NewsController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/news/list")
-	public Map<String,Object> list() {
+	public Map<String,Object> list(@RequestParam("accessid") String accessid,
+			@RequestParam(value = "pageIndex",required = false) String pageIndex) {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {
-			List <News> list = newsService.list();
+			List <News> list = newsService.list(accessid, pageIndex);
 			result.put("suc", "yes");
 			result.put("data", list);
 
