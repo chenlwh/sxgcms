@@ -35,6 +35,8 @@ public class UserController {
 	public void login(HttpServletRequest request, HttpServletResponse response, 
 			@RequestParam("username") String username, @RequestParam("password") String password) {
 		Map<String, Object> result = new HashMap<String, Object>();
+		String path = request.getContextPath();  
+		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
 		try {
 			logger.info("-------------------------login begin");
 			User user = userService.login(username, password);
@@ -43,14 +45,25 @@ public class UserController {
 				logger.info("-------------------------login request "+request);
 				HttpSession session = request.getSession();
 				logger.info("-------------------------login session "+session);
+				
+		        String requestPath = request.getServletPath();
+		        
+		        if(basePath.indexOf("sx.ssdjz.com.cn")!=-1) {
+		        	basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort();  
+		        }
+		        logger.info("-------------------------filter basePath "+basePath);
+		        logger.info("-------------------------filter requestPath "+requestPath);
+		        logger.info("-------------------------filter Path "+basePath+requestPath);
+		        
 				session.setAttribute("user", user);
 				session.setAttribute("username", user.getUsername());
-				response.sendRedirect("../admin/main.html");
+//				response.sendRedirect("../../admin/main.html");
+				response.sendRedirect(basePath+"/admin/main.html");
 				
 				logger.info("-------------------------login end ");
 			}else {
 				logger.info("-------------------------login error ");
-				response.sendRedirect("../login.jsp?msg=error");
+				response.sendRedirect(basePath+"/login.jsp?msg=error");
 			}
 			result.put("suc", "yes");
 			result.put("data", user);
