@@ -26,7 +26,7 @@ window.onload=function(){
 	$(".scroll").css("margin-bottom",$(".advertisement").height());
 	var num={"red":13,"orange":6,"yellow":8,"green":2,"grey":5,"blue":1};
 	
-	$.post("news/list",{accessid:"page3"},function(res){
+	$.post("module/list",{accessid:"page3"},function(res){
 	    var dataList = res.data;
 	    var page3html = "";
 	    var length = dataList.length;
