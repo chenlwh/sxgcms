@@ -11,30 +11,36 @@
 <link rel="stylesheet" href="css/normalize.css">
 <link rel="stylesheet" href="css/common.css">
 
-    <link rel="stylesheet" href="css/bodysize.css">
-    <link rel="stylesheet" href="css/swiper-3.4.0.min.css">
-    <link rel="stylesheet" href="css/HNAbrief.css">
-    <link rel="stylesheet" href="css/HNAbrief-m.css">
-
+<link rel="stylesheet" href="css/bodysize.css">
+<link rel="stylesheet" href="css/swiper-3.4.0.min.css">
+<link rel="stylesheet" href="css/HNAbrief.css">
+<link rel="stylesheet" href="css/HNAbrief-m.css">
 <link rel="stylesheet" href="css/actionNews.css">
-	<style>
-		html,body{
-				font-family:"Helvetica Neue", Helvetica, Tahoma, Arial, "PingFang SC", "Heiti SC", "Hiragino Sans GB", SimHei, STXihei, "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
-			}
-		.list-title{
-			text-align:center!important;
-			letter-spacing:0!important;
-		}
-		.button-column .search-button,.button-column .differ-line{
-			display:none!important;
-		}
-		.visibility0{
-			display:none !important;
-		}
-        .ad_url {
-            cursor:default;
-        }
-	</style>
+<link rel="stylesheet" href="css/newsTextList.css">
+<style>
+html, body {
+	font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "PingFang SC",
+		"Heiti SC", "Hiragino Sans GB", SimHei, STXihei, "Microsoft YaHei",
+		"WenQuanYi Micro Hei", sans-serif;
+}
+
+.list-title {
+	text-align: center !important;
+	letter-spacing: 0 !important;
+}
+
+.button-column .search-button, .button-column .differ-line {
+	display: none !important;
+}
+
+.visibility0 {
+	display: none !important;
+}
+
+.ad_url {
+	cursor: default;
+}
+</style>
 </head>
 <body style="">
 
@@ -55,36 +61,21 @@
 		</div>
 	</div>
 	<!--Header E-->
-<div class="news-filter-div">
-    <div class="news-filter container">
+	<div class="news-filter-div">
+		<div class="news-filter container">
 
-        <a href="newscenter.html" class="filter-item filter-item-active" data-id="1">圣行新闻</a>
-        <div class="shu-line hidden-mxs hidden-xs">|</div>
-        <a href="notice.html" class="filter-item" data-id="2">公司公告</a>
-        <div class="shu-line hidden-mxs hidden-xs">|</div>
-        <a href="research.html" class="filter-item" data-id="3">圣行研究</a>
-    </div>
-</div>
-	
-	<!--二级导航栏-->
-	<div class="second-block">
-		<div class="about-brief">
-			<div class="brief-detail">
-				<div class="brief-word">
-				<!-- 
-					<p class="word-title hidden-xs hidden-mxs">
-						<span>圣行资讯</span>
-					</p>
-					 -->
-<!--web端新闻栏-->
-<div class="web-container container clearfix hidden-mxs hidden-sm hidden-xs" style="padding-top:30px;">
-    <div id="newscenter" class="web-news clearfix"></div>
-</div>
+			<a href="newscenter.html" class="filter-item" data-id="1">圣行新闻</a>
+			<div class="shu-line hidden-mxs hidden-xs">|</div>
+			<a href="notice.html" class="filter-item filter-item-active"
+				data-id="2">公司公告</a>
+			<div class="shu-line hidden-mxs hidden-xs">|</div>
+			<a href="research.html" class="filter-item" data-id="3">圣行研究</a>
+		</div>
+	</div>
 
-
-
-				</div>
-			</div>
+	<div class=third-blcok>
+		<div class="container" style="padding-top: 30px;">
+			<div id="noticeList" class="news-list all-list clearfix" id="Result"></div>
 		</div>
 	</div>
 
@@ -123,10 +114,10 @@
 	<script src="js/jquery-1.10.1.min.js"></script>
 	<script src="js/common.js"></script>
 
-    <script src="js/swiper-3.4.0.jquery.min.js"></script> 
-    <script src="js/actionNews.js"></script>
-    
-    <script src="js/newscenter.js"></script>
+	<script src="js/swiper-3.4.0.jquery.min.js"></script>
+	<script src="js/actionNews.js"></script>
+
+	<script src="js/notice.js"></script>
 
 
 </body>

@@ -6,21 +6,41 @@ $().ready(function(){
 	    var dataList = res.data;
 	    var newscenter = "";
 	    var length = dataList.length;
-	    var size = length/2;
+	    var size = parseInt(length/2);
+	    var index = 0;
 	    for(var i=0;i<size;i++){	    	
 	    	newscenter += "<div class='txt-column'>";
 	    	for(var j=0; j<2; j++){
-	    		var index = 2*i+j;
+	    		index = 2*i+j;
 	    		var data = dataList[index];
 	    		
-	    		newscenter += "<a href='news.html?id="+data.id+"' class='dvb-txt clearfix' target='_blank'>";
+	    		if(j==0){
+	    			newscenter += "<a href='news.html?id="+data.id+"' style='border-right: 1px solid #e1e1e1;' class='dvb-txt clearfix' target='_blank'>";
+	    		}else{
+	    			newscenter += "<a href='news.html?id="+data.id+"' style='padding-left:30px;' class='dvb-txt clearfix' target='_blank'>";
+	    		}
 		    	newscenter += "<div class='news-bg' style='background-image:url("+data.picPath+")'></div>";
-		    	newscenter += "<div class='news-txt'>";
+		    	if(j==0){
+		    		newscenter += "<div class='news-txt'>";
+	    		}else{
+	    			newscenter += "<div class='news-txt' style='padding-left:30px;'>";
+	    		}
 		    	newscenter += "<h3 class='min-h4'>"+data.title+"</h3>";
 		    	newscenter += "<p class='min-p hidden-xs hidden-mxs hidden-sm'>";
-		    	newscenter += "<span>新闻</span><span>"+data.releaseTime+"</span></p></div></a>";
+		    	newscenter += "<span>新闻</span><span>"+convertToDate(data.releaseTime)+"</span></p></div></a>";
 	    		
 	    	}
+	    	newscenter += "</div>";
+	    }
+	    if(index<length){
+	    	var data = dataList[length-1];
+	    	newscenter += "<div class='txt-column' style='width:50%;'>";
+	    	newscenter += "<a href='news.html?id="+data.id+"' style='border-right: 1px solid #e1e1e1;' class='dvb-txt clearfix' target='_blank'>";
+	    	newscenter += "<div class='news-bg' style='background-image:url("+data.picPath+")'></div>";
+		    newscenter += "<div class='news-txt'>";
+	    	newscenter += "<h3 class='min-h4'>"+data.title+"</h3>";
+		    newscenter += "<p class='min-p hidden-xs hidden-mxs hidden-sm'>";
+		    newscenter += "<span>新闻</span><span>"+convertToDate(data.releaseTime)+"</span></p></div></a>";
 	    	newscenter += "</div>";
 	    }
 
