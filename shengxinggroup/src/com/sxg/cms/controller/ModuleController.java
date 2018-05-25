@@ -96,5 +96,39 @@ public class ModuleController {
 		}
 		return "homeModule";
 	}
+	
+	@RequestMapping(value = "/module/background", method = { RequestMethod.POST })
+	public String background(HttpServletRequest request,@RequestParam("imageFile") MultipartFile imageFile,
+			@RequestParam("accessid") String accessid) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		try {	
+			String picPath = "";
+			if("1".equals(accessid)) {
+				picPath="home-bg1";
+			}else if("2".equals(accessid)) {
+				picPath="home-bg2";
+			}else if("3".equals(accessid)) {
+				picPath="home-bg3";
+			}else if("4".equals(accessid)) {
+				picPath="home-bg4";
+			}
+			String imagePath = "resource/"+ picPath +".png";
+			String path = request.getServletContext().getRealPath("/");
+			File pagePath = new File(path+imagePath);
+			if(pagePath.exists()){
+				pagePath.delete();
+			}
+			imageFile.transferTo(pagePath);
+			
+			result.put("suc", "yes");
+			result.put("msg", "保存成功");
+
+		} catch (Exception e) {
+			result.put("suc", "no");
+			result.put("msg", e.getMessage());
+			e.printStackTrace();
+		}
+		return "homeBackground";
+	}
 
 }

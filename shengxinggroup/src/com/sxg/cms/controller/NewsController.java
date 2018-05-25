@@ -97,27 +97,6 @@ public class NewsController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/news/imageUpload", method = { RequestMethod.POST })
-	public Map<String, Object> imageUpload(HttpServletRequest request,@RequestParam("imageFile") MultipartFile imageFile) {
-		Map<String, Object> result = new HashMap<String, Object>();
-		try {	     
-			String imagePath = "resource/"+UUID.randomUUID().toString()+".png";
-			String path = request.getServletContext().getRealPath("/");
-			File vedioPath = new File(path+imagePath);
-			imageFile.transferTo(vedioPath);
-			
-			result.put("suc", "yes");
-			result.put("msg", "保存成功");
-
-		} catch (Exception e) {
-			result.put("suc", "no");
-			result.put("msg", e.getMessage());
-			e.printStackTrace();
-		}
-		return result;
-	}
-	
-	@ResponseBody
 	@RequestMapping(value = "/news/admin/list")
 	public Map<String,Object> adminList(HttpServletRequest request) {
 		Map<String, Object> result = new HashMap<String, Object>();

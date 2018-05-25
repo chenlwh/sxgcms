@@ -10,7 +10,7 @@ $().ready(function(){
 	    $("#releaser").html(data.creater);
 	    $("#releaseDate").html(convertToDate(data.createdTime));
 	    $(".content-detail").html(data.content);
-	    $("#newsImage").attr("src",data.picPath);
+//	    $("#newsImage").attr("src",data.picPath);
 	    
 	});
 	
