@@ -1,6 +1,7 @@
 package com.sxg.cms.dao.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
@@ -77,8 +78,8 @@ public class NewsDaoImpl extends HibernateDaoSupport implements NewsDao {
 
 	@Override
 	public void release(String id) {
-		String hql = "update News set status='1' where id=?";
-		super.getHibernateTemplate().bulkUpdate(hql, id);
+		String hql = "update News set status='1', releaseTime=? where id=?";
+		super.getHibernateTemplate().bulkUpdate(hql, new Object[] {new Date(),id});
 		
 	}
 
