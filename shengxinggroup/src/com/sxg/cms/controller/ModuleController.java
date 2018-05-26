@@ -61,10 +61,11 @@ public class ModuleController {
 
 	}
 	
-	@RequestMapping(value = "/module/save", method = { RequestMethod.POST })
+	@RequestMapping(value = "/admin/saveModule", method = { RequestMethod.POST })
 	public String save(HttpServletRequest request,@RequestParam("imageFile") MultipartFile imageFile,
 			@RequestParam(value="id",required=false) String id,@RequestParam("title") String title,
-			@RequestParam("content") String content,@RequestParam("accessid") String accessid) {
+			@RequestParam("content") String content,@RequestParam("accessid") String accessid,
+			@RequestParam("series") String series) {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {	     
 			String imagePath = "resource/"+UUID.randomUUID().toString()+".png";
@@ -83,6 +84,7 @@ public class ModuleController {
 			module.setAccessid(accessid);
 			module.setCreatedTime(new Date());
 			module.setCreater(user.getShowname());
+			module.setSeries(series);
 
 			moduleService.save(module);
 			
@@ -97,7 +99,7 @@ public class ModuleController {
 		return "homeModule";
 	}
 	
-	@RequestMapping(value = "/module/background", method = { RequestMethod.POST })
+	@RequestMapping(value = "/admin/background", method = { RequestMethod.POST })
 	public String background(HttpServletRequest request,@RequestParam("imageFile") MultipartFile imageFile,
 			@RequestParam("accessid") String accessid) {
 		Map<String, Object> result = new HashMap<String, Object>();

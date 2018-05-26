@@ -27,7 +27,7 @@ public class ModuleDaoImpl extends HibernateDaoSupport implements ModuleDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Module> list() {
-		String hql = "from Module order by accessid desc ";
+		String hql = "from Module order by series ASC ";
 		List<Module> list = (List<Module>) super.getHibernateTemplate().find(hql);
 		
 		return list;

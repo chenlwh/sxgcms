@@ -257,7 +257,7 @@ mySwiper1.addCallback('ProgressChange', function (swiper) {
             scale = 1;
             translate = 0;
         }
-        slide.style.opacity = opacity;
+//        slide.style.opacity = opacity;
 //        swiper.setTransform(slide, 'translate3d(0,' + (translate) + 'px,0) scale(' + scale + ')');
     }
 });

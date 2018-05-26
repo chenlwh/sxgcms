@@ -20,7 +20,7 @@
 		<h1>版块介绍</h1>
 	</div>
 
-	<form action="../module/save" class="form-horizontal" enctype="multipart/form-data" method="post">		
+	<form action="../admin/saveModule" class="form-horizontal" enctype="multipart/form-data" method="post">		
 		<input id="id" type="hidden" class="form-control" name="id" >
 		<div class="form-group">
 			<label for="accessid" class="col-sm-2 control-label"
@@ -57,6 +57,19 @@
 				style="text-align: left">图片上传：</label>
 			<div class="col-sm-5">
 				<input id="imageFile" name="imageFile" type="file" />
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="accessid" class="col-sm-2 control-label"
+				style="text-align: left">顺序：</label>
+			<div class="col-sm-5">
+				<input id="series" class="easyui-combobox" name="series"
+					data-options="
+					valueField:'id',
+					textField:'text',
+					panelHeight:'auto',
+					editable:false">
 			</div>
 		</div>
 

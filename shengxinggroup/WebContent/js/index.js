@@ -42,8 +42,8 @@ window.onload=function(){
 	    	page3html += "<h4 class='p'>"+data.title+"</h4>";
 	    	page3html += "</div><img src='images/p_"+ (i+1)+".png'></div><div class='model-text top-model'>";
 	    	page3html += "<h3 class='min-h3'>"+data.title+"</h3>";
-	    	page3html += "<p>"+data.content.substring(0,45)+"</p>";
-	    	page3html += "<a href='#'>查看更多 &gt;</a><img src='images/p_"+ (i+1)+"_red.png'></div></div>";
+	    	page3html += "<p>"+data.content+"</p>";
+	    	page3html += "<a href='"+data.accessid+"'>查看更多 &gt;</a><img src='images/p_"+ (i+1)+"_red.png'></div></div>";
 	    }
 	    page3html +="<script>$('.production-container .model').click(function(e){" +
 	    		"var show=$('.show'),bottom_model=$('.bottom-model');show.css('display','none');show.css('height','0');" +

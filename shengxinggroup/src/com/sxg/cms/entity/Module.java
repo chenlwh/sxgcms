@@ -45,6 +45,8 @@ public class Module implements Serializable {
 	
 	private String status;
 	
+	private String series;
+	
 	public String getId() {
 		return id;
 	}
@@ -115,6 +117,14 @@ public class Module implements Serializable {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public String getSeries() {
+		return series;
+	}
+
+	public void setSeries(String series) {
+		this.series = series;
 	}
 
 
