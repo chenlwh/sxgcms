@@ -89,7 +89,14 @@ function initUserTable(){
 			{field:"id",title:"id",hidden:true},
 			{field:"username",title:"用户名",width:"20%"},
 			{field:"password",title:"密码",width:"20%"},
-			{field:"createdTime",title:"创建时间",width:"20%"},
+			{field:"createdTime",title:"创建时间",width:"20%",
+				formatter:function(value,row,index){
+					if(value!=null&&value!=""){
+						value = convertToDate(value);
+					}
+					return value;
+				}
+			},
 			{field:"showname",title:"显示名称",width:"20%"},
 			{field:"accessid",title:"权限",width:"20%",
 				formatter:function(value,row,index){
@@ -105,5 +112,33 @@ function initUserTable(){
 		]]
 	});
 }
+
+function convertToDate(millis){
+	var date = new Date(millis);
+	var year = date.getFullYear();
+	var month= date.getMonth()+1;
+	var day = date.getDate();
+	var hour = date.getHours();
+	var min = date.getMinutes();
+	var second = date.getSeconds();
+	
+	if(month<10){
+		month = "0"+month;
+	}
+	if(day<10){
+		day ="0" + day;
+	}
+	if(hour<10){
+		hour ="0"+hour;
+	}
+	if(min<10){
+		min ="0"+min;
+	}
+	if(second<10){
+		second="0"+second;
+	}
+	return year+"-"+month+"-"+day+"\n"+hour+":"+min+":"+second;
+}
+
 
 

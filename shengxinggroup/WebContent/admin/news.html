@@ -24,11 +24,12 @@
 	</div>
 
 	<form action="../admin/save" class="form-horizontal" enctype="multipart/form-data" method="post">
+		<input id="id" type="hidden" name="id">
 		<div class="form-group">
 			<label for="title" class="col-sm-2 control-label"
 				style="text-align: left">标题：</label>
 			<div class="col-sm-5">
-				<input type="text" class="form-control" name="title"
+				<input id="title" type="text" class="form-control" name="title"
 					maxlength=255>
 			</div>
 		</div>

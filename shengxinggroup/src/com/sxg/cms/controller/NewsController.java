@@ -146,4 +146,5 @@ public class NewsController {
 		return result;
 
 	}
+
 }

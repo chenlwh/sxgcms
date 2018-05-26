@@ -33,7 +33,27 @@ $().ready(function(){
 		    }
 
 		});
+		
+		var id = GetQueryString("id");
+		$.post("../news/findById",{id:id},function(res){
+		    var data = res.data;
+		    
+		    $("#id").val(data.id);
+		    $("#accessid").combobox("setValue", data.accessid);
+		    $("#title").val(data.title);
+		    
+		    editor.setContent(data.content);
+		});
 
 });
 
+function GetQueryString(param){
+	var reg = new RegExp("(^|&)"+ param +"=([^&]*)(&|$)");
+	var r = window.location.search.substr(1).match(reg);
+	if(r!=null){
+		return unescape(r[2]);
+	}else{
+		return null;
+	}
+}
 

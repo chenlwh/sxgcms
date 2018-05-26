@@ -8,6 +8,16 @@ $().ready(function() {
 		$("#newsTable").datagrid("loadData", data);
 	});
 	
+	$("#edit").click(function(){
+		var row = $('#newsTable').datagrid('getSelected');
+		if (row){
+			$("#contentFrame", parent.document).attr("src","../admin/news.html?id="+row.id);  
+		}else{
+			$('#messageContent').html("请选择修改的新闻");
+			$('#message').dialog('open').dialog('setTitle','提示');
+		}
+	});
+	
 	$("#view").click(function(){
 		var row = $('#newsTable').datagrid('getSelected');
 		if (row){
