@@ -18,7 +18,8 @@
 	</div>
 
 	<form action="../admin/twomark" class="form-horizontal"
-		enctype="multipart/form-data" method="post" onsubmit="javascript:return check();">
+		enctype="multipart/form-data" method="post"
+		onsubmit="javascript:return check();">
 		<div class="form-group">
 			<label for="imageFile" class="col-sm-2 control-label"
 				style="text-align: left">二维码：</label>
@@ -44,13 +45,13 @@
 	</form>
 </body>
 <script type="text/javascript">
-function check(){
-	var name = $("#imageFile").val();	
-	if(name==null||name==""){
-		$('#msg').html("上传文件不能为空");
-		return false;
+	function check() {
+		var name = $("#imageFile").val();
+		if (name == null || name == "") {
+			$('#msg').html("上传文件不能为空");
+			return false;
+		}
+		return true;
 	}
-	return true;
-}
 </script>
 </html>

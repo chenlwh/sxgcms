@@ -14,9 +14,6 @@ import com.sxg.cms.entity.Introduce;
 import com.sxg.cms.service.IntroduceService;
 
 @Controller
-
-@RequestMapping("/introduce")
-
 public class IntroduceController {
 
 	@Autowired
@@ -24,7 +21,7 @@ public class IntroduceController {
 	
 	
 	@ResponseBody
-	@RequestMapping(value = "/list")
+	@RequestMapping(value = "/introduce/list")
 	public Map<String,Object> list(@RequestParam("type") String type) {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {
@@ -40,9 +37,9 @@ public class IntroduceController {
 
 	}
 	
-	@ResponseBody
-	@RequestMapping(value = "/save", method = { RequestMethod.POST })
-	public Map<String, Object> save(@RequestParam("id") String id,@RequestParam("content") String content,@RequestParam("type") String type) {
+
+	@RequestMapping(value = "/admin/introduce", method = { RequestMethod.POST })
+	public String save(@RequestParam("id") String id,@RequestParam("content") String content,@RequestParam("type") String type) {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {	     			
 			Introduce introduce = new Introduce();
@@ -62,6 +59,12 @@ public class IntroduceController {
 			result.put("msg", e.getMessage());
 			e.printStackTrace();
 		}
-		return result;
+		String path = "introduction";
+		if("2".equals(type)) {
+			path="contract";
+		}else if("3".equals(type)) {
+			path="culture";
+		}
+		return path;
 	}
 }
