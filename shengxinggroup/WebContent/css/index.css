@@ -2864,6 +2864,8 @@ text-decoration:underline!important;
 .swiper-slide .footer .footer-container .footer-right {
   width: 100%;
   float: right;
+  padding-top:10px;
+  padding-right:150px;
 }
 @media (min-width: 768px) {
   .swiper-slide .footer .footer-container .footer-right {
@@ -2899,7 +2901,7 @@ text-decoration:underline!important;
 }
 .swiper-slide .footer .footer-container .footer-copy {
   font-size: 12px;
-  margin-top: 40px;
+  margin-top: 20px;
   color: rgba(255, 255, 255, 0.54);
   float: left;
   width: 100%;

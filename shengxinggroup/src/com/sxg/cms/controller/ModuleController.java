@@ -132,5 +132,28 @@ public class ModuleController {
 		}
 		return "homeBackground";
 	}
+	
+	@RequestMapping(value = "/admin/twomark", method = { RequestMethod.POST })
+	public String twomark(HttpServletRequest request,@RequestParam("imageFile") MultipartFile imageFile) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		try {	
+			String imagePath = "resource/twomark.png";
+			String path = request.getServletContext().getRealPath("/");
+			File pagePath = new File(path+imagePath);
+			if(pagePath.exists()){
+				pagePath.delete();
+			}
+			imageFile.transferTo(pagePath);
+			
+			result.put("suc", "yes");
+			result.put("msg", "保存成功");
+
+		} catch (Exception e) {
+			result.put("suc", "no");
+			result.put("msg", e.getMessage());
+			e.printStackTrace();
+		}
+		return "twomark";
+	}
 
 }
