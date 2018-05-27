@@ -12,6 +12,17 @@ $().ready(function(){
 		}
 	});
 	
+	var url = window.location.pathname;
+	url = url.replace("/shengxinggroup","");
+	url = url.replace("/","");
+	$.post("tkd/findByUrl",{model:url},function(res){
+	    var data = res.data;
+	    $("title").html(data.title);	    
+	    $("head").append("<meta name='description' content='"+data.description+"'>");
+	    $("meta[name='keywords']").attr('content',data.keywords);
+	    
+	});
+	
 
 
 });
