@@ -1,73 +1,68 @@
-/**
- * 
- */
-$().ready(function() {
-
-	var menu = [ {
-		"id" : "newscenter.html",
-		"text" : "新闻"
-	}, {
-		"id" : "notice.html",
-		"text" : "公告"
-	}, {
-		"id" : "research.html",
-		"text" : "研究"
-	}, {
-		"id" : "join.html",
-		"text" : "人才招聘"
-	} ];
-	$("#accessid").combobox("loadData", menu);
+$().ready(function(){	
+	initUserTable();
 	
-	var series = [ {
-		"id" : "1",
-		"text" : "1"
-	}, {
-		"id" : "2",
-		"text" : "2"
-	}, {
-		"id" : "3",
-		"text" : "3"
-	}, {
-		"id" : "4",
-		"text" : "4"
-	} ];
-	$("#series").combobox("loadData", series);
+	list();
 	
-//	$("#accessid").combobox("setValue", "newscenter.html");
-	
-	$.post("../module/findById",{accessid:$("#accessid").val()},function(res){
-	    var data = res.data;
-	    if(data){
-		    $("#id").val(data.id);
-		    $("#accessid").combobox("setValue", data.accessid);
-		    $("#title").val(data.title);
-		    $("#content").val(data.content);
-//		    $("#imageFile").val(data.picPath);
-		    $("#series").combobox("setValue", data.series);
-	    }
+	$("#new").click(function(){
+		$("#contentFrame", parent.document).attr("src","../admin/addModule.html");  
 	});
-		
 	
-	$("#accessid").combobox({
-		onChange: function (n,o) {
-			$.post("../module/findById",{accessid:$("#accessid").val()},function(res){
-			    var data = res.data;
-			    if(data){
-				    $("#id").val(data.id);
-				    $("#accessid").combobox("setValue", data.accessid);
-				    $("#title").val(data.title);
-				    $("#content").val(data.content);
-//				    $("#imageFile").val(data.picPath);
-				    $("#series").combobox("setValue", data.series);
-			    }else{
-			    	$("#id").val("");
-				    $("#title").val("");
-				    $("#content").val("");
-//				    $("#imageFile").val(data.picPath);
-				    $("#series").combobox("setValue", "");
-			    }
+	$("#edit").click(function(){
+		var row = $('#dg').datagrid('getSelected');
+		if (row){
+			$("#contentFrame", parent.document).attr("src","../admin/addModule.html?id="+row.id);  
+		}else{
+			$('#messageContent').html("请选择修改的版块");
+			$('#message').dialog('open').dialog('setTitle','提示');
+		}
+	});
+	
+	$("#delete").click(function(){
+		var row = $('#dg').datagrid('getSelected');
+		if (row){
+			$.messager.confirm('确认','确定删除该版块吗?',function(r){
+				if (r){
+					$.post('../module/delete',{id:row.id},function(result){
+						if (result.suc=="yes"){
+							list();
+						} else {
+							$.messager.show({	// show error message
+								title: 'Error',
+								msg: result.msg
+							});
+						}
+					},'json');
+				}
 			});
+		}else{
+			$('#messageContent').html("请选择删除版块");
+			$('#message').dialog('open').dialog('setTitle','提示');
 		}
 	});
 
 });
+
+function list(){
+	$.post("../module/list",{},function(res){
+	    var data = res.data;
+	    $("#dg").datagrid("loadData",data);
+	});
+}
+
+function initUserTable(){
+	$("#dg").datagrid({
+		maxHeight: 500,
+		striped:true,
+		fitColumns: true,
+		rownumbers: true,
+		singleSelect:true,
+		loadMsg: '正在加载，请稍候...',
+		rowStyler: function(index, row) {},
+		columns:[[
+			{field:"id",title:"id",hidden:true},
+			{field:"title",title:"标题",width:"25%"},
+			{field:"series",title:"排序",width:"5%"},
+			{field:"content",title:"简介",width:"70%"}
+		]]
+	});
+}

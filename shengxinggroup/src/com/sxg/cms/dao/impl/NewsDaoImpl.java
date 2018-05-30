@@ -36,7 +36,7 @@ public class NewsDaoImpl extends HibernateDaoSupport implements NewsDao {
 		if("page4".equals(accessid)) {
 			hql = "from News where accessid = '2' and status='1' order by releaseTime desc ";
 			HibernateTemplate template = super.getHibernateTemplate();
-			template.setMaxResults(10);
+			template.setMaxResults(9);
 			list = (List<News>) template.find(hql);
 		}else {
 			hql = "from News where accessid = ? and status='1' order by releaseTime desc ";

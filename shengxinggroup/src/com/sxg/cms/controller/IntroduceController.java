@@ -64,6 +64,8 @@ public class IntroduceController {
 			path="contract";
 		}else if("3".equals(type)) {
 			path="culture";
+		}else if("4".equals(type)) {
+			path="homeGroup";
 		}
 		return path;
 	}

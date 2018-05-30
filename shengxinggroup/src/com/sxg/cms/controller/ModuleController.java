@@ -46,10 +46,10 @@ public class ModuleController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/module/findById")
-	public Map<String,Object> findById(@RequestParam("accessid") String accessid) {
+	public Map<String,Object> findById(@RequestParam("id") String id) {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {
-			Module module = moduleService.findById(accessid);
+			Module module = moduleService.findById(id);
 			result.put("suc", "yes");
 			result.put("data", module);
 
@@ -64,7 +64,7 @@ public class ModuleController {
 	@RequestMapping(value = "/admin/saveModule", method = { RequestMethod.POST })
 	public String save(HttpServletRequest request,@RequestParam("imageFile") MultipartFile imageFile,
 			@RequestParam(value="id",required=false) String id,@RequestParam("title") String title,
-			@RequestParam("content") String content,@RequestParam("accessid") String accessid,
+			@RequestParam("content") String content,
 			@RequestParam("series") String series) {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {	     
@@ -81,7 +81,7 @@ public class ModuleController {
 			module.setTitle(title);
 			module.setContent(content);
 			module.setPicPath(imagePath);
-			module.setAccessid(accessid);
+//			module.setAccessid(accessid);
 			module.setCreatedTime(new Date());
 			module.setCreater(user.getShowname());
 			module.setSeries(series);
@@ -97,6 +97,23 @@ public class ModuleController {
 			e.printStackTrace();
 		}
 		return "homeModule";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/module/delete")
+	public Map<String,Object> delete(@RequestParam("id") String id) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		try {
+			moduleService.delete(id);
+			result.put("suc", "yes");
+			result.put("msg", "success");
+
+		} catch (Exception e) {
+			result.put("suc", "no");
+			result.put("msg", "error");
+		}
+		return result;
+
 	}
 	
 	@RequestMapping(value = "/admin/background", method = { RequestMethod.POST })

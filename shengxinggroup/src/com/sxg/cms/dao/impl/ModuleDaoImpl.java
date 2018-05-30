@@ -36,7 +36,7 @@ public class ModuleDaoImpl extends HibernateDaoSupport implements ModuleDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public Module findById(String id) {
-		String hql = "from Module where accessid =?";
+		String hql = "from Module where id =?";
 		List<Module> list = (List<Module>)  super.getHibernateTemplate().find(hql,id);
 		if(list.size()==1) {
 			return list.get(0);
@@ -45,4 +45,11 @@ public class ModuleDaoImpl extends HibernateDaoSupport implements ModuleDao {
 		}
 	}
 
+	@Override
+	public void delete(String id) {
+		Module module = new Module();
+		module.setId(id);
+		super.getHibernateTemplate().delete(module);
+		
+	}
 }

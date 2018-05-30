@@ -8,5 +8,5 @@ public interface ModuleDao {
 	public void save(Module user); 
 	public List<Module> list(); 
 	public Module findById(String id); 
-	
+	public void delete(String id); 
 }

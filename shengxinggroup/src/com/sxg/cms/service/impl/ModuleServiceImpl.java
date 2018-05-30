@@ -31,6 +31,12 @@ public class ModuleServiceImpl implements ModuleService {
 		return ModuleDao.findById(id);
 	}
 	
+	@Override
+	public void delete(String id) {
+		ModuleDao.delete(id);
+		
+	}
+	
 
 
 }

@@ -516,7 +516,7 @@ display:none;
 }
 @media(min-width:768px){
 	.carousel-1 .carousel-text {
-		top: 50%;
+		top: 40%;
 	}
 	.carousel-1 .carousel-text.active-text .max_h3 {
 		margin-bottom:0;	

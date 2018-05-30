@@ -18,7 +18,7 @@ $("#saveBtn").click(function(){
     strContent = strContent.replace(/\n/g, '<br/>'); //IE7-8  
     strContent = strContent.replace(/\s/g, ' '); //空格处理  
     
-    $.post('../introduce/save',{id:$("#id").val(),content:strContent,type:$("#type").val()},function(result){
+    $.post('../admin/introduce',{id:$("#id").val(),content:strContent,type:$("#type").val()},function(result){
 		if (result.suc=="yes"){
 			alert("保存成功");
 		} else {
