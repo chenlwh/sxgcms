@@ -62,8 +62,11 @@ public class ModuleController {
 	}
 	
 	@RequestMapping(value = "/admin/saveModule", method = { RequestMethod.POST })
-	public String save(HttpServletRequest request,@RequestParam("imageFile") MultipartFile imageFile,
-			@RequestParam(value="id",required=false) String id,@RequestParam("title") String title,
+	public String save(HttpServletRequest request,
+			@RequestParam("imageFile") MultipartFile imageFile,
+			@RequestParam(value="id",required=false) String id,
+			@RequestParam("title") String title,
+			@RequestParam("introduce") String introduce,
 			@RequestParam("content") String content,
 			@RequestParam("series") String series) {
 		Map<String, Object> result = new HashMap<String, Object>();
@@ -79,6 +82,7 @@ public class ModuleController {
 				module.setId(id);
 			}
 			module.setTitle(title);
+			module.setIntroduce(introduce);
 			module.setContent(content);
 			module.setPicPath(imagePath);
 //			module.setAccessid(accessid);

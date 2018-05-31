@@ -32,7 +32,7 @@ $("#admin_menu a").click(function() {
 });
 
 $("#logout").click(function(){
-	$.post("../user/logout");
+	$.post("../admin/logout");
 });
 
 

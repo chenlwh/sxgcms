@@ -22,16 +22,13 @@ import com.sxg.cms.entity.User;
 import com.sxg.cms.service.UserService;
 
 @Controller
-
-@RequestMapping("/user")
-
 public class UserController {
 	private final Logger logger = Logger.getLogger(this.getClass());
 
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value = "/login")
+	@RequestMapping(value = "/user/login")
 	public void login(HttpServletRequest request, HttpServletResponse response, 
 			@RequestParam("username") String username, @RequestParam("password") String password) {
 		Map<String, Object> result = new HashMap<String, Object>();
@@ -75,7 +72,7 @@ public class UserController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/list")
+	@RequestMapping(value = "/user/list")
 	public Map<String,Object> list() {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {
@@ -92,7 +89,7 @@ public class UserController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/user")
+	@RequestMapping(value = "/user/user")
 	public Map<String,Object> user(HttpServletRequest request) {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {
@@ -109,7 +106,7 @@ public class UserController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/save")
+	@RequestMapping(value = "/user/save")
 	public Map<String,Object> save(@RequestParam(value="id",required=false) String id,
 			@RequestParam("username") String username,
 			@RequestParam("password") String password,
@@ -130,7 +127,7 @@ public class UserController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/delete")
+	@RequestMapping(value = "/user/delete")
 	public Map<String,Object> delete(@RequestParam("id") String id) {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {
@@ -147,7 +144,7 @@ public class UserController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/password")
+	@RequestMapping(value = "/user/password")
 	public Map<String,Object> password(HttpServletRequest request,@RequestParam("password") String password) {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {
@@ -167,7 +164,7 @@ public class UserController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/upload", method = { RequestMethod.POST })
+	@RequestMapping(value = "/user/upload", method = { RequestMethod.POST })
 	public Map<String, Object> upload(HttpServletRequest request,HttpServletResponse response, @RequestParam("vedioFile") MultipartFile vedioFile) {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {	     
@@ -189,20 +186,13 @@ public class UserController {
 		return result;
 	}
 	
-	@RequestMapping(value = "/logout")
-	public void logout(HttpServletRequest request, HttpServletResponse response) {
-		Map<String, Object> result = new HashMap<String, Object>();
-		try {
-			HttpSession session = request.getSession();
-			session.removeAttribute("user");
-			session.removeAttribute("username");
-			session.invalidate();
-			
-			response.sendRedirect("../login.jsp");
-			result.put("suc", "yes");
-		} catch (Exception e) {
-			result.put("suc", "no");
-			result.put("msg", e.getMessage());
-		}
+	@RequestMapping(value = "/admin/logout")
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		session.removeAttribute("user");
+		session.removeAttribute("username");
+		session.invalidate();
+
+		return "login";
 	}
 }

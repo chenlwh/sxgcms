@@ -40,7 +40,7 @@ $().ready(function() {
 		    $("#id").val(data.id);
 //		    $("#accessid").combobox("setValue", data.accessid);
 		    $("#title").val(data.title);
-//		    $("#content").val(data.content);
+		    $("#introduce").val(data.introduce);
 		    editor.setContent(data.content);
 //		    $("#imageFile").val(data.picPath);
 		    $("#series").combobox("setValue", data.series);

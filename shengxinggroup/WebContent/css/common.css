@@ -117,24 +117,24 @@ h3, .h3 {
 }
 
 .navigation-en {
-	font-size: 20px;
+	font-size: 22px;
 }
 
 @media ( min-width : 768px) {
 	.navigation-en {
-		font-size: 30px;
+		font-size: 32px;
 	}
 }
 
 @media ( min-width : 992px) {
 	.navigation-en {
-		font-size: 30px;
+		font-size: 32px;
 	}
 }
 
 @media ( min-width : 1600px) {
 	.navigation-en {
-		font-size: 30px;
+		font-size: 32px;
 	}
 }
 

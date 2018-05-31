@@ -114,7 +114,7 @@ function initUserTable(){
 				}
 			},
 			{field:"creater",title:"创建人",width:"20%"},
-			{field:"createdTime",title:"创建时间",width:"20%",
+			{field:"createdTime",title:"更新时间",width:"20%",
 				formatter:function(value,row,index){
 					if(value!=null&&value!=""){
 						value = convertToDate(value);

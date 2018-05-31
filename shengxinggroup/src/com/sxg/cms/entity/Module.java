@@ -30,6 +30,8 @@ public class Module implements Serializable {
 	
 	private String creater;
 	
+	private String introduce;
+	
 	private String content;
 	
 	@Column(name = "CREATED_TIME")
@@ -125,6 +127,14 @@ public class Module implements Serializable {
 
 	public void setSeries(String series) {
 		this.series = series;
+	}
+
+	public String getIntroduce() {
+		return introduce;
+	}
+
+	public void setIntroduce(String introduce) {
+		this.introduce = introduce;
 	}
 
 

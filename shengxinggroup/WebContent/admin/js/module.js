@@ -17,6 +17,21 @@ $().ready(function(){
 		}
 	});
 	
+	
+	$("#view").click(function(){
+		var row = $('#dg').datagrid('getSelected');
+		if (row){
+			var url = window.location.href;
+			var urls = url.split("/admin");
+			
+			window.open(urls[0]+"/module.html?id="+row.id);
+
+		}else{
+			$('#messageContent').html("请选择预览版块");
+			$('#message').dialog('open').dialog('setTitle','提示');
+		}
+	});
+	
 	$("#delete").click(function(){
 		var row = $('#dg').datagrid('getSelected');
 		if (row){
@@ -62,7 +77,7 @@ function initUserTable(){
 			{field:"id",title:"id",hidden:true},
 			{field:"title",title:"标题",width:"25%"},
 			{field:"series",title:"排序",width:"5%"},
-			{field:"content",title:"简介",width:"70%"}
+			{field:"introduce",title:"简介",width:"70%"}
 		]]
 	});
 }
