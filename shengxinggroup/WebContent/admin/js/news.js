@@ -43,7 +43,10 @@ $().ready(function(){
 			    $("#accessid").combobox("setValue", data.accessid);
 			    $("#title").val(data.title);
 			    
-			    editor.setContent(data.content);
+//			    editor.setContent(data.content);
+			    editor.ready(function() {
+			    	editor.setContent(data.content);
+			    },2);
 			});
 		}
 });

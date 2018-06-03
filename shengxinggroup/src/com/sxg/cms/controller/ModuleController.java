@@ -70,17 +70,28 @@ public class ModuleController {
 			@RequestParam("content") String content,
 			@RequestParam("series") String series) {
 		Map<String, Object> result = new HashMap<String, Object>();
-		try {	     
-			String imagePath = "resource/"+UUID.randomUUID().toString()+".png";
-			String path = request.getServletContext().getRealPath("/");
-			File vedioPath = new File(path+imagePath);
-			imageFile.transferTo(vedioPath);
+		try {	   
+			String imagePath = "";
+			Module module = new Module();
+			if(id!=null) {
+				module = moduleService.findById(id);
+				imagePath = module.getPicPath();
+			}else {
+				imagePath = "resource/"+UUID.randomUUID().toString()+".png";
+			}
+			
+			if(imageFile!=null&&imageFile.getSize()>0) {
+				String path = request.getServletContext().getRealPath("/");
+				File file = new File(path+imagePath);
+				
+				if(file.exists()){
+					file.delete();
+				}
+				imageFile.transferTo(file);
+			}
+
 			User user = (User) request.getSession().getAttribute("user");
 			
-			Module module = new Module();
-			if(id!=null&&id.length()>0) {
-				module.setId(id);
-			}
 			module.setTitle(title);
 			module.setIntroduce(introduce);
 			module.setContent(content);

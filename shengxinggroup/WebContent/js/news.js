@@ -11,6 +11,11 @@ $().ready(function(){
 	    $("#releaseDate").html(convertToDate(data.createdTime));
 	    $(".content-detail").html(data.content);
 //	    $("#newsImage").attr("src",data.picPath);
+	    var accessid= data.accessid;
+	    if(accessid=="5"){
+	    	$("#news").removeClass("active");
+	    	$("#join").addClass("active");
+	    }
 	    
 	});
 	

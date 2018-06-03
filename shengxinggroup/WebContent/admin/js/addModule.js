@@ -41,7 +41,10 @@ $().ready(function() {
 //		    $("#accessid").combobox("setValue", data.accessid);
 		    $("#title").val(data.title);
 		    $("#introduce").val(data.introduce);
-		    editor.setContent(data.content);
+		    editor.ready(function() {
+		    	editor.setContent(data.content);
+		    },2);
+//		    editor.setContent(data.content);
 //		    $("#imageFile").val(data.picPath);
 		    $("#series").combobox("setValue", data.series);
 	    }

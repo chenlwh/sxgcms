@@ -3,7 +3,10 @@ $().ready(function(){
 		var data = res.data;
 		if(data!=null){
 			$("#id").val(data.id);
-			editor.setContent(data.content);
+//			editor.setContent(data.content);
+		    editor.ready(function() {
+		    	editor.setContent(data.content);
+		    },2);
 		}
 	});
 

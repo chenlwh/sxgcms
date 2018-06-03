@@ -17,10 +17,11 @@ $().ready(function(){
 	url = url.replace("/","");
 	$.post("tkd/findByUrl",{model:url},function(res){
 	    var data = res.data;
-	    $("title").html(data.title);	    
-	    $("head").append("<meta name='description' content='"+data.description+"'>");
-	    $("meta[name='keywords']").attr('content',data.keywords);
-	    
+	    if(data){
+	    	$("title").html(data.title);	    
+		    $("head").append("<meta name='description' content='"+data.description+"'>");
+		    $("meta[name='keywords']").attr('content',data.keywords);
+	    }	    
 	});
 	
 
