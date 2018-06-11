@@ -185,7 +185,7 @@ public class ModuleController {
 			result.put("msg", e.getMessage());
 			e.printStackTrace();
 		}
-		return "twomark";
+		return "mark";
 	}
 
 }

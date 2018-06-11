@@ -24,6 +24,10 @@ $().ready(function(){
 	    }	    
 	});
 	
+	
+	$(".footer-logo img").click(function(){
+		window.location.href="index.html";
+	});
 
 
 });
