@@ -73,7 +73,7 @@ public class ModuleController {
 		try {	   
 			String imagePath = "";
 			Module module = new Module();
-			if(id!=null) {
+			if(id!=null&&id.length()>0) {
 				module = moduleService.findById(id);
 				imagePath = module.getPicPath();
 			}else {

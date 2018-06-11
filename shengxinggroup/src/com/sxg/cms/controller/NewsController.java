@@ -73,7 +73,7 @@ public class NewsController {
 		try {	 
 			String imagePath = "";
 			News news = new News();
-			if(id!=null) {
+			if(id!=null&&id.length()>0) {
 				news = newsService.findById(id);
 				imagePath = news.getPicPath();
 			}else {
