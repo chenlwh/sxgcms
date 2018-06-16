@@ -47,6 +47,19 @@ $().ready(function(){
 
 	    $("#newscenter").html(newscenter);
 	    
+	    var newsmobile = "";
+	    for(var i=0;i<length;i++){
+	    	var data = dataList[i];
+	    	
+	    	newsmobile += "<a href='news.html?id="+data.id+"' class='picture clearfix'>";
+	    	newsmobile += "<div class='news-pic' target='_blank' style='background-image:url("+data.picPath+")'></div>";
+	    	newsmobile += "<div class='right-txt hidden-md hidden-lg' target='_blank'>";
+	    	newsmobile += " <h3 class='min-h4'>"+data.title+"</h3>";	    	
+	    	newsmobile += "<span class='introduce'><span>新闻</span><span>|</span><span>"+convertToDate(data.releaseTime)+"</span></span></div></a>";
+	    }
+	    
+	    $("#newscenter_mobile").html(newsmobile);
+    
 	});	
 
 });
