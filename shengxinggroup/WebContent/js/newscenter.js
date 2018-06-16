@@ -32,6 +32,7 @@ $().ready(function(){
 	    	}
 	    	newscenter += "</div>";
 	    }
+	    index = index+1;
 	    if(index<length){
 	    	var data = dataList[length-1];
 	    	newscenter += "<div class='txt-column' style='width:50%;'>";
