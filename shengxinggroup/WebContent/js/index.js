@@ -50,7 +50,7 @@ window.onload=function(){
 	    	page3html += "<p>"+introduce+"</p>";
 	    	page3html += "<a href='module.html?id="+data.id+"'>查看更多 &gt;</a><img src='images/p_"+ (i+1)+"_red.png'></div>";
 	    	
-	    	page3html += "<div class='model-text-mobile mobile-model3'>";
+	    	page3html += "<div class='model-text-mobile mobile-model"+ (i+1)+"'>";
 	    	page3html += "<h3 class='min-h3'>"+data.title+"</h3>";
 	    	page3html += "<p>"+introduce+"</p>";
 	    	page3html += "<a href='module.html?id="+data.id+"'>查看更多 &gt;</a><img src='images/p_"+ (i+1)+"_red.png'></div>";	    	
@@ -73,7 +73,7 @@ window.onload=function(){
 	    	page3html += "<p>"+introduce+"</p>";
 	    	page3html += "<a href='module.html?id="+data.id+"'>查看更多 &gt;</a><img src='images/p_"+ (i+1)+"_red.png'></div>";
 	    	
-	    	page3html += "<div class='model-text-mobile mobile-model3'>";
+	    	page3html += "<div class='model-text-mobile mobile-model"+ (i+1)+"'>";
 	    	page3html += "<h3 class='min-h3'>"+data.title+"</h3>";
 	    	page3html += "<p>"+introduce+"</p>";
 	    	page3html += "<a href='module.html?id="+data.id+"'>查看更多 &gt;</a><img src='images/p_"+ (i+1)+"_red.png'></div>";	    	
