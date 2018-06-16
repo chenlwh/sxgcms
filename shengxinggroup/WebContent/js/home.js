@@ -86,8 +86,8 @@ var mySwiper1 = new Swiper('.swiper-container-v',{
                 button_right.removeClass("red-normal");
                 button_right.addClass("normal");
                 navigation_text.css("color","#fff");
-                button_search.attr("src","/images/search.png");
-                $(".menu-button").attr("src","/images/menu.png");
+                button_search.attr("src","images/search.png");
+                $(".menu-button").attr("src","images/menu.png");
                 add_button(share_button,left_icon,0);
                 hover_icon(1);
                 break;
@@ -106,8 +106,8 @@ var mySwiper1 = new Swiper('.swiper-container-v',{
                 button_right.removeClass("normal");
                 button_right.addClass("red-normal");
                 navigation_text.css("color","rgba(0,0,0,0.6)");
-                button_search.attr("src","/images/search-red.png");
-                $(".menu-button").attr("src","/images/menu-grey.png");
+                button_search.attr("src","images/search-red.png");
+                $(".menu-button").attr("src","images/menu-grey.png");
                 clear_pagination(3);
                 add_button(share_button,left_icon,1);
                 hover_icon(2);
@@ -268,10 +268,10 @@ function hover_icon(kind){
         var name= $(this).attr("data-name");
         switch(kind) {
             case 1:
-                $(this).attr("src", "/images/" + name + " white.png");
+                $(this).attr("src", "images/" + name + " white.png");
                 break;
             case 2:
-                $(this).attr("src", "/images/" + name + "_hover.png");
+                $(this).attr("src", "images/" + name + "_hover.png");
                 break;
         }
         if(name=="wechat"){
@@ -287,10 +287,10 @@ function hover_icon(kind){
         qr_hover.find($(".sina_qr")).hide();
         switch(kind) {
             case 1:
-                $(this).attr("src","/images/"+name+" white.png")
+                $(this).attr("src","images/"+name+" white.png")
                 break;
             case 2:
-                $(this).attr("src","/images/"+name+" grey.png")
+                $(this).attr("src","images/"+name+" grey.png")
                 break;
         }
     });
@@ -317,15 +317,15 @@ function add_button(node,left_icon,kind){
     var num=node.length;
     switch(kind){
         case 0: for(var i=0;i<num;i++){
-            node.eq(i).attr("src","/images/"+left_icon.icon_white[i]);
+            node.eq(i).attr("src","images/"+left_icon.icon_white[i]);
         }
             break;
         case 1: for(var j=0;j<num;j++){
-            node.eq(j).attr("src","/images/"+left_icon.icon_grey[j]);
+            node.eq(j).attr("src","images/"+left_icon.icon_grey[j]);
         }
             break;
         case 2: for(var m=0;m<num;m++){
-            node.eq(m).attr("src","/images/"+left_icon.icon_hover[m]);
+            node.eq(m).attr("src","images/"+left_icon.icon_hover[m]);
         }
             break;
     }
@@ -358,11 +358,11 @@ $(".production").click(function(){
 $(".pagination .pagination-stop").click(function(){
     if($(this).find("img").hasClass("start")){
         $(this).find("img").removeClass("start");
-        $(this).find("img").attr("src","/images/start.png");
+        $(this).find("img").attr("src","images/start.png");
     }
     else{
         $(this).find("img").addClass("start");
-        $(this).find("img").attr("src","/images/stop.png");
+        $(this).find("img").attr("src","images/stop.png");
     }
 });
 

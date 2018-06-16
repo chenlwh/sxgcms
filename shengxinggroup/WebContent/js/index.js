@@ -48,7 +48,13 @@ window.onload=function(){
 	    	page3html += "</div><img src='images/p_"+ (i+1)+".png'></div><div class='model-text top-model'>";
 	    	page3html += "<h3 class='min-h3'>"+data.title+"</h3>";
 	    	page3html += "<p>"+introduce+"</p>";
-	    	page3html += "<a href='module.html?id="+data.id+"'>查看更多 &gt;</a><img src='images/p_"+ (i+1)+"_red.png'></div></div>";
+	    	page3html += "<a href='module.html?id="+data.id+"'>查看更多 &gt;</a><img src='images/p_"+ (i+1)+"_red.png'></div>";
+	    	
+	    	page3html += "<div class='model-text-mobile mobile-model3'>";
+	    	page3html += "<h3 class='min-h3'>"+data.title+"</h3>";
+	    	page3html += "<p>"+introduce+"</p>";
+	    	page3html += "<a href='module.html?id="+data.id+"'>查看更多 &gt;</a><img src='images/p_"+ (i+1)+"_red.png'></div>";	    	
+	    	page3html += "</div>";
 	    }
 	    
 	    for(var i=2;i<length;i++){
@@ -65,7 +71,13 @@ window.onload=function(){
 	    	page3html += "</div><img src='images/p_"+ (i+1)+".png'></div><div class='model-text bottom-model'>";
 	    	page3html += "<h3 class='min-h3'>"+data.title+"</h3>";
 	    	page3html += "<p>"+introduce+"</p>";
-	    	page3html += "<a href='module.html?id="+data.id+"'>查看更多 &gt;</a><img src='images/p_"+ (i+1)+"_red.png'></div></div>";
+	    	page3html += "<a href='module.html?id="+data.id+"'>查看更多 &gt;</a><img src='images/p_"+ (i+1)+"_red.png'></div>";
+	    	
+	    	page3html += "<div class='model-text-mobile mobile-model3'>";
+	    	page3html += "<h3 class='min-h3'>"+data.title+"</h3>";
+	    	page3html += "<p>"+introduce+"</p>";
+	    	page3html += "<a href='module.html?id="+data.id+"'>查看更多 &gt;</a><img src='images/p_"+ (i+1)+"_red.png'></div>";	    	
+	    	page3html += "</div>";
 	    }
 	    
 	    page3html +="<script>$('.production-container .model').click(function(e){" +
