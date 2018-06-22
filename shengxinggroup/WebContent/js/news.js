@@ -17,6 +17,11 @@ $().ready(function(){
 	    	$("#join").addClass("active");
 	    }
 	    
+	    if($("nav").css('display')=="none"){
+			$(".content-div img").attr("width","98%");
+			$(".content-div img").attr("height","auto");
+			$(".content-div img").css("display","block");
+		}
 	});
 	
 
