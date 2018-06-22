@@ -101,7 +101,7 @@
     </div>
 <!--list E-->
 <!--二级导航栏-->
-<div class="second-block">
+<div class="content-div second-block">
     <div class="about-brief">
         <div class="brief-detail">
             <div class="brief-word">
@@ -200,6 +200,12 @@ $().ready(function(){
 		var data = res.data;
 		if(data!=null){
 			$("#cultureContent p").html(data.content);
+			
+			if($("nav").css('display')=="none"){
+				$(".content-div img").attr("width","98%");
+				$(".content-div img").attr("height","auto");
+				$(".content-div img").css("display","block");
+			}
 		}
 	});
 
