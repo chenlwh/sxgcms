@@ -121,6 +121,8 @@ $().ready(function(){
 		    }
 		    
 		    $("#newscenter_mobile").html(newsmobile);
+		    
+		    loadIndex++;
 	    
 		});	
 	});
