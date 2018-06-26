@@ -1,10 +1,13 @@
 /**
  * 
  */
+var loadIndex = 1;
+var newsmobile = "";
+var newscenter = "";
 $().ready(function(){	
-	$.post("news/list",{accessid:"2",pageIndex:"1"},function(res){
+	$.post("news/list",{accessid:"2",pageIndex:"0"},function(res){
 	    var dataList = res.data;
-	    var newscenter = "";
+	    newscenter = "";
 	    var length = dataList.length;
 	    var size = parseInt(length/2);
 	    var index = 0;
@@ -47,7 +50,7 @@ $().ready(function(){
 
 	    $("#newscenter").html(newscenter);
 	    
-	    var newsmobile = "";
+	    newsmobile = "";
 	    for(var i=0;i<length;i++){
 	    	var data = dataList[i];
 	    	
@@ -61,6 +64,66 @@ $().ready(function(){
 	    $("#newscenter_mobile").html(newsmobile);
     
 	});	
+	
+	$(".load-more").click(function(){
+		$.post("news/list",{accessid:"2",pageIndex:loadIndex},function(res){
+		    var dataList = res.data;
+		    var length = dataList.length;
+		    var size = parseInt(length/2);
+		    var index = 0;
+		    for(var i=0;i<size;i++){	    	
+		    	newscenter += "<div class='txt-column'>";
+		    	for(var j=0; j<2; j++){
+		    		index = 2*i+j;
+		    		var data = dataList[index];
+		    		
+		    		if(j==0){
+		    			newscenter += "<a href='news.html?id="+data.id+"' style='border-right: 1px solid #e1e1e1;' class='dvb-txt clearfix' target='_blank'>";
+		    		}else{
+		    			newscenter += "<a href='news.html?id="+data.id+"' style='padding-left:30px;' class='dvb-txt clearfix' target='_blank'>";
+		    		}
+			    	newscenter += "<div class='news-bg' style='background-image:url("+data.picPath+")'></div>";
+			    	if(j==0){
+			    		newscenter += "<div class='news-txt'>";
+		    		}else{
+		    			newscenter += "<div class='news-txt' style='padding-left:30px;'>";
+		    		}
+			    	newscenter += "<h3 class='min-h4'>"+data.title+"</h3>";
+			    	newscenter += "<p class='min-p hidden-xs hidden-mxs hidden-sm'>";
+			    	newscenter += "<span>新闻</span><span>"+convertToDate(data.releaseTime)+"</span></p></div></a>";
+		    		
+		    	}
+		    	newscenter += "</div>";
+		    }
+		    index = index+1;
+		    if(index<length){
+		    	var data = dataList[length-1];
+		    	newscenter += "<div class='txt-column' style='width:50%;'>";
+		    	newscenter += "<a href='news.html?id="+data.id+"' style='border-right: 1px solid #e1e1e1;' class='dvb-txt clearfix' target='_blank'>";
+		    	newscenter += "<div class='news-bg' style='background-image:url("+data.picPath+")'></div>";
+			    newscenter += "<div class='news-txt'>";
+		    	newscenter += "<h3 class='min-h4'>"+data.title+"</h3>";
+			    newscenter += "<p class='min-p hidden-xs hidden-mxs hidden-sm'>";
+			    newscenter += "<span>新闻</span><span>"+convertToDate(data.releaseTime)+"</span></p></div></a>";
+		    	newscenter += "</div>";
+		    }
+
+		    $("#newscenter").html(newscenter);
+		    
+		    for(var i=0;i<length;i++){
+		    	var data = dataList[i];
+		    	
+		    	newsmobile += "<a href='news.html?id="+data.id+"' class='picture clearfix'>";
+		    	newsmobile += "<div class='news-pic' target='_blank' style='background-image:url("+data.picPath+")'></div>";
+		    	newsmobile += "<div class='right-txt hidden-md hidden-lg' target='_blank'>";
+		    	newsmobile += " <h3 class='min-h4'>"+data.title+"</h3>";	    	
+		    	newsmobile += "<span class='introduce'><span>新闻</span><span>|</span><span>"+convertToDate(data.releaseTime)+"</span></span></div></a>";
+		    }
+		    
+		    $("#newscenter_mobile").html(newsmobile);
+	    
+		});	
+	});
 
 });
 

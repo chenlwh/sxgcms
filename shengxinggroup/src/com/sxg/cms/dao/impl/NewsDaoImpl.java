@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
@@ -39,10 +41,16 @@ public class NewsDaoImpl extends HibernateDaoSupport implements NewsDao {
 			template.setMaxResults(9);
 			list = (List<News>) template.find(hql);
 		}else {
-			hql = "from News where accessid = ? and status='1' order by releaseTime desc ";
-			HibernateTemplate template = super.getHibernateTemplate();
-			template.setMaxResults(80);
-			list = (List<News>) template.find(hql,accessid);
+			hql = "from News where accessid = ? and status='1' order by releaseTime desc";
+//			HibernateTemplate template = super.getHibernateTemplate();
+			int beginIndex = new Integer(pageIndex)*10;
+			Query query = super.getSessionFactory().getCurrentSession().createQuery(hql);
+			query.setFirstResult(beginIndex);
+			query.setMaxResults(10);		
+			query.setParameter(0, accessid);
+//			query.getResultList();
+			
+			list = query.getResultList();
 		}
 		
 		return list;
