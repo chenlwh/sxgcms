@@ -3,10 +3,7 @@
  */
 $().ready(function() {
 	initUserTable();
-	$.post("../news/admin/list", {}, function(res) {
-		var data = res.data;
-		$("#newsTable").datagrid("loadData", data);
-	});
+	initUserData();
 	
 	$("#edit").click(function(){
 		var row = $('#newsTable').datagrid('getSelected');
@@ -89,6 +86,52 @@ $().ready(function() {
 
 });
 
+function initUserData(){
+	var options = $("#newsTable" ).datagrid("getPager" ).data("pagination" ).options;
+    var curr = options.pageNumber;
+    if(curr == 0) {
+    	curr = 1;
+    }
+    var pageSize = options.pageSize;
+	$.post("../news/admin/list", {startPage:curr,pageSize:pageSize}, function(res) {
+		var list = res.data;
+		var total = res.total;
+		var datagridData = {
+			total: total,
+			rows: list
+		};
+		$('#newsTable').datagrid({
+			loadFilter: pagerFilter
+		}).datagrid('loadData', datagridData);
+		
+	});
+}
+
+function pagerFilter(data) {
+	if (typeof data.length == 'number' && typeof data.splice == 'function') { // 判断数据是否是数组
+		data = {
+			total: data.length,
+			rows: data
+		};
+	}
+	var dg = $(this);
+	var opts = dg.datagrid('options');
+	var pager = dg.datagrid('getPager');
+	pager.pagination({
+		showPageList: true,
+		onSelectPage: function(pageNum, pageSize) {
+			opts.pageNumber = pageNum;
+			opts.pageSize = pageSize;
+			pager.pagination('refresh', {
+				pageNumber: pageNum,
+				pageSize: pageSize
+			});
+			initUserData();
+		}
+	});
+	return data;
+}
+
 function initUserTable(){
 	$("#newsTable").datagrid({
 		maxHeight: 500,
@@ -96,6 +139,10 @@ function initUserTable(){
 		fitColumns: true,
 		rownumbers: true,
 		singleSelect:true,
+		remoteSort:false,
+		pagination: true,
+		pageSize: 10,
+		pageList: [10, 20, 50],
 		loadMsg: '正在加载，请稍候...',
 		rowStyler: function(index, row) {},
 		columns:[[

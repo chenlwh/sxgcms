@@ -116,17 +116,23 @@ public class NewsController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/news/admin/list")
-	public Map<String,Object> adminList(HttpServletRequest request) {
+	public Map<String,Object> adminList(HttpServletRequest request,
+            @RequestParam("startPage") Integer startPage,
+            @RequestParam("pageSize") Integer pageSize) {
 		Map<String, Object> result = new HashMap<String, Object>();
 		try {
 			User user = (User) request.getSession().getAttribute("user");
-			List <News> list = newsService.adminList(user);
+			List <News> list = newsService.adminList(user,startPage,pageSize);
+			Integer total = newsService.countNews(user);
+
 			result.put("suc", "yes");
 			result.put("data", list);
+			result.put("total", total);
 
 		} catch (Exception e) {
 			result.put("suc", "no");
 			result.put("msg", "error");
+			e.printStackTrace();
 		}
 		return result;
 
