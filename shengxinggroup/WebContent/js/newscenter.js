@@ -10,6 +10,7 @@ $().ready(function(){
 	    newscenter = "";
 	    var length = dataList.length;
 	    var size = parseInt(length/2);
+	    var isOne = length%2;
 	    var index = 0;
 	    for(var i=0;i<size;i++){	    	
 	    	newscenter += "<div class='txt-column'>";
@@ -35,8 +36,8 @@ $().ready(function(){
 	    	}
 	    	newscenter += "</div>";
 	    }
-	    index = index+1;
-	    if(index<length){
+//	    index = index+1;
+	    if(isOne){
 	    	var data = dataList[length-1];
 	    	newscenter += "<div class='txt-column' style='width:50%;'>";
 	    	newscenter += "<a href='news.html?id="+data.id+"' style='border-right: 1px solid #e1e1e1;' class='dvb-txt clearfix' target='_blank'>";
@@ -70,6 +71,7 @@ $().ready(function(){
 		    var dataList = res.data;
 		    var length = dataList.length;
 		    var size = parseInt(length/2);
+		    var isOne = length%2;
 		    var index = 0;
 		    for(var i=0;i<size;i++){	    	
 		    	newscenter += "<div class='txt-column'>";
@@ -95,8 +97,8 @@ $().ready(function(){
 		    	}
 		    	newscenter += "</div>";
 		    }
-		    index = index+1;
-		    if(index<length){
+//		    index = index+1;
+		    if(isOne){
 		    	var data = dataList[length-1];
 		    	newscenter += "<div class='txt-column' style='width:50%;'>";
 		    	newscenter += "<a href='news.html?id="+data.id+"' style='border-right: 1px solid #e1e1e1;' class='dvb-txt clearfix' target='_blank'>";
