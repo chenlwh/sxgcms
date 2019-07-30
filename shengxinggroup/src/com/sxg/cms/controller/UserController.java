@@ -45,12 +45,13 @@ public class UserController {
 				
 		        String requestPath = request.getServletPath();
 		        
-		        if(basePath.indexOf("sx.ssdjz.com.cn")!=-1) {
+		        if(basePath.indexOf("sxjtgw.com")!=-1 || basePath.indexOf("sx.ssdjz.com.cn")!=-1) {
 		        	basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort();  
 		        }
 		        logger.info("-------------------------filter basePath "+basePath);
 		        logger.info("-------------------------filter requestPath "+requestPath);
 		        logger.info("-------------------------filter Path "+basePath+requestPath);
+		        basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort(); 
 		        
 				session.setAttribute("user", user);
 				session.setAttribute("username", user.getUsername());

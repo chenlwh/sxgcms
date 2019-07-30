@@ -26,9 +26,10 @@ public class LoginAccessFilter implements Filter{
         String requestPath = req.getServletPath();
         String path = req.getContextPath();  
         String basePath = req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+path;  
-        if(basePath.indexOf("sx.ssdjz.com.cn")!=-1) {
+        if(basePath.indexOf("sxjtgw.com")!=-1 || basePath.indexOf("sx.ssdjz.com.cn")!=-1) {
         	basePath = req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort();  
         }
+        basePath = req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort();  
         
         if(requestPath.equals("/admin/login.html")) {
     		chain.doFilter(req, resp);  
